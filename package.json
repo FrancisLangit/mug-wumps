@@ -1,0 +1,29 @@
+{
+  "name": "battleship",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "doc": "jsdoc -c jsdoc.json",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrancisLangit/battleship.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FrancisLangit/battleship/issues"
+  },
+  "homepage": "https://github.com/FrancisLangit/battleship#readme",
+  "devDependencies": {
+    "css-loader": "^6.2.0",
+    "jest": "^27.0.6",
+    "jsdoc": "^3.6.7",
+    "style-loader": "^3.2.1",
+    "webpack": "^5.47.1",
+    "webpack-cli": "^4.7.2"
+  }
+}
