@@ -1,5 +1,9 @@
-const Square = () => {
-    return undefined;
+const Square = (x, y) => {
+    return {
+        'coordinates': [x, y],
+        'isOccupied': false,
+        'isHit': false,
+    }
 }
 
 
