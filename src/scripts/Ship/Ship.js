@@ -15,9 +15,18 @@ const Ship = (x, y, length, isVertical) => {
         return squares;
     }
 
+    /**
+     * Sets `isHit` of target `Square` object in `squares` array to `true`.
+     * 
+     * @param {int} index Index of target `Square` object in `Ship.squares`. 
+     */
+    const hit = (index) => {
+        squares[index].isHit = true;
+    }
+
     const squares = _getSquares();
 
-    return { squares };
+    return { squares, hit };
 }
 
 
