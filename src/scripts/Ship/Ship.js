@@ -1,5 +1,23 @@
-const Ship = () => {
-    return undefined;
+import { Square } from "../Square/square";
+
+
+const Ship = (x, y, length, isVertical) => {
+    /**
+     * Returns array holding `Square` objects making up body of ship.
+     * 
+     * @returns {Array} Holds Ship's `Square` objects.
+     */
+    const _getSquares = () => {
+        let squares = [];
+        for (let i = 0; i < length; i++) {
+            squares.push(isVertical ? Square(x, y + i) : Square(x + i, y));
+        }
+        return squares;
+    }
+
+    const squares = _getSquares();
+
+    return { squares };
 }
 
 
