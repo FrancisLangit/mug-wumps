@@ -1,6 +1,23 @@
 import { Square } from "../Square/square";
 
+/**
+ * Module holding and containing `Ship` factory function.
+ * 
+ * @module Ship
+ */
 
+/**
+ * Factory function returning object representing a ship on the gameboard.
+ * 
+ * @namespace
+ * 
+ * @param {int} x X-coordinate of the top-left most square of the ship.
+ * @param {int} y Y-coordinate of the top-left most square of the ship. 
+ * @param {int} length  Number of squares occupied by the ship.
+ * @param {boolean} isVertical `true` if ship vertical on the gameboard.
+ * 
+ * @returns {Object} Object representing a ship.
+ */
 const Ship = (x, y, length, isVertical) => {
     /**
      * Returns array holding `Square` objects making up body of ship.
