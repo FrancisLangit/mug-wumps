@@ -14,3 +14,15 @@ test('"squares" property of object returned by Ship(1, 1, 5, true)', () => {
         Square(1, 1), Square(1, 2), Square(1, 3), Square(1, 4), Square(1, 5)];
     expect(testShip).toHaveProperty('squares', expectedSquares);
 });
+
+test('hit() method of object returned by Ship(2, 3, 2)', () => {
+    const testShip = Ship(2, 3, 2);
+    testShip.hit(1);
+    expect(testShip.squares[1]).toHaveProperty('isHit', true);
+});
+
+test('hit() method of object returned by Ship(3, 0, 4, true)', () => {
+    const testShip = Ship(3, 0, 4, true);
+    testShip.hit(3);
+    expect(testShip.squares[3]).toHaveProperty('isHit', true);
+});
