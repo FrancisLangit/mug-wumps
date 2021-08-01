@@ -26,3 +26,18 @@ test('hit() method of object returned by Ship(3, 0, 4, true)', () => {
     testShip.hit(3);
     expect(testShip.squares[3]).toHaveProperty('isHit', true);
 });
+
+test('isSunk() method of object returned by Ship(2, 1, 2)', () => {
+    const testShip = Ship(2, 1, 2);
+    testShip.hit(0);
+    testShip.hit(1);
+    expect(testShip.isSunk()).toEqual(true);
+});
+
+test('isSunk() method of object returned by Ship(4, 4, 3, true)', () => {
+    const testShip = Ship(4, 4, 3, true);
+    testShip.hit(0);
+    testShip.hit(1);
+    testShip.hit(2);
+    expect(testShip.isSunk()).toEqual(true);
+});
