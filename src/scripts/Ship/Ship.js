@@ -18,15 +18,26 @@ const Ship = (x, y, length, isVertical) => {
     /**
      * Sets `isHit` of target `Square` object in `squares` array to `true`.
      * 
-     * @param {int} index Index of target `Square` object in `Ship.squares`. 
+     * @param {int} index Index of target `Square` object in `Ship.squares`.
      */
     const hit = (index) => {
         squares[index].isHit = true;
     }
 
+    /**
+     * Returns `true` if `isHit` of all `Square` objects in squares `true`.
+     * 
+     * @returns {boolean} `true` if all ships's square hit.
+     */
+    const isSunk = () => {
+        return squares.every((square) => {
+            return square.isHit === true;
+        });
+    }
+
     const squares = _getSquares();
 
-    return { squares, hit };
+    return { squares, hit, isSunk };
 }
 
 
