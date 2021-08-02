@@ -20,18 +20,7 @@ import { Square } from "../Square/square";
  * @returns {Object} Object representing a ship.
  */
 const Ship = (x, y, length, isVertical) => {
-    /**
-     * Returns array holding `Square` objects making up body of ship.
-     * 
-     * @returns {Array} Holds Ship's `Square` objects.
-     */
-    const _getSquares = () => {
-        let squares = [];
-        for (let i = 0; i < length; i++) {
-            squares.push(isVertical ? Square(x, y + i) : Square(x + i, y));
-        }
-        return squares;
-    }
+    let hits = Array(length).fill(false);
 
     /**
      * Sets `isHit` of target `Square` object in `squares` array to `true`.
@@ -39,7 +28,7 @@ const Ship = (x, y, length, isVertical) => {
      * @param {int} index Index of target `Square` object in `Ship.squares`.
      */
     const hit = (index) => {
-        squares[index].isHit = true;
+        hits[index] = true;
     }
 
     /**
@@ -48,14 +37,12 @@ const Ship = (x, y, length, isVertical) => {
      * @returns {boolean} `true` if all ships's square hit.
      */
     const isSunk = () => {
-        return squares.every((square) => {
-            return square.isHit === true;
+        return hits.every((hit) => {
+            return hit === true;
         });
     }
 
-    const squares = _getSquares();
-
-    return { squares, hit, isSunk };
+    return { hits, hit, isSunk };
 }
 
 

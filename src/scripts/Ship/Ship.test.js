@@ -1,20 +1,23 @@
 import { Ship } from "./Ship";
 import { Square } from "../Square/square";
 
-// hits array
-// hit() method - should set target hit boolean in hits to true
-// isSunk() - returns true if all hits in hits array is true
 
-test('"hits" array of object returned by Ship(5, 6, 3)', () => {
+test('Properties of object returned by Ship(5, 6, 3)', () => {
     const ship = Ship(5, 6, 3);
-    const expectedShipHits = [false, false, false];
-    expect(ship).toHaveProperty('hits', expectedShipHits);
+    expect(ship).toHaveProperty('x', 5);
+    expect(ship).toHaveProperty('y', 6);
+    expect(ship).toHaveProperty('length', 3);
+    expect(ship).toHaveProperty('isVertical', false);
+    expect(ship).toHaveProperty('hits', [false, false, false]);
 });
 
-test('"hits" array of object returned by Ship(1, 1, 5, true)', () => {
+test('Properties of object returned by Ship(1, 1, 5, true)', () => {
     const ship = Ship(1, 1, 5, true);
-    const expectedShipHits = [false, false, false, false, false];
-    expect(ship).toHaveProperty('hits', expectedShipHits);
+    expect(ship).toHaveProperty('x', 1);
+    expect(ship).toHaveProperty('y', 1);
+    expect(ship).toHaveProperty('length', 5);
+    expect(ship).toHaveProperty('isVertical', true);
+    expect(ship).toHaveProperty('hits', [false, false, false, false, false]);
 });
 
 test('hit() method of object returned by Ship(2, 3, 2)', () => {
@@ -29,17 +32,18 @@ test('hit() method of object returned by Ship(3, 0, 4, true)', () => {
     expect(ship.hits[3]).toEqual(true);
 });
 
-// test('isSunk() method of object returned by Ship(2, 1, 2)', () => {
-//     const testShip = Ship(2, 1, 2);
-//     testShip.hit(0);
-//     testShip.hit(1);
-//     expect(testShip.isSunk()).toEqual(true);
-// });
 
-// test('isSunk() method of object returned by Ship(4, 4, 3, true)', () => {
-//     const testShip = Ship(4, 4, 3, true);
-//     testShip.hit(0);
-//     testShip.hit(1);
-//     testShip.hit(2);
-//     expect(testShip.isSunk()).toEqual(true);
-// });
+test('isSunk() method of object returned by Ship(2, 1, 2)', () => {
+    const ship = Ship(2, 1, 2);
+    ship.hit(0);
+    ship.hit(1);
+    expect(ship.isSunk()).toEqual(true);
+});
+
+test('isSunk() method of object returned by Ship(4, 4, 3, true)', () => {
+    const ship = Ship(4, 4, 3, true);
+    ship.hit(0);
+    ship.hit(1);
+    ship.hit(2);
+    expect(ship.isSunk()).toEqual(true);
+});
