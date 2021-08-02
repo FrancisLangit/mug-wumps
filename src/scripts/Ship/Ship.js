@@ -1,5 +1,6 @@
 import { Square } from "../Square/square";
 
+
 /**
  * Module holding and containing `Ship` factory function.
  * 
