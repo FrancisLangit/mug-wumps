@@ -1,9 +1,11 @@
 import { Gameboard } from './Gameboard'; 
 
-test('"ships" property of object returned by Gameboard()', () => {
-    expect(Gameboard()).toHaveProperty('ships');
+
+test('Properties of object returned by Gameboard()', () => {
+    const gameboard = Gameboard();
+    expect(gameboard).toHaveProperty('ships');
+    expect(gameboard).toHaveProperty('misses', []);
+    expect(gameboard).toHaveProperty('receiveAttack');
+    expect(gameboard).toHaveProperty('isAllShipsSunk');
 });
 
-test('"misses" property of object returned by Gameboard()', () => {
-    expect(Gameboard()).toHaveProperty('misses', []);
-});
