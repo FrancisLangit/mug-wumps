@@ -1,6 +1,3 @@
-import { Square } from "../Square/square";
-
-
 /**
  * Module holding and containing `Ship` factory function.
  * 
@@ -19,7 +16,7 @@ import { Square } from "../Square/square";
  * 
  * @returns {Object} Object representing a ship.
  */
-const Ship = (x, y, length, isVertical) => {
+const Ship = (x, y, length, isVertical=false) => {
     let hits = Array(length).fill(false);
 
     /**
@@ -42,7 +39,7 @@ const Ship = (x, y, length, isVertical) => {
         });
     }
 
-    return { hits, hit, isSunk };
+    return { x, y, length, isVertical, hits, hit, isSunk };
 }
 
 
