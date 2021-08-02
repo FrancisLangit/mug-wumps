@@ -1,5 +1,4 @@
 import { Ship } from "./Ship";
-import { Square } from "../Square/square";
 
 
 test('Properties of object returned by Ship(5, 6, 3)', () => {
@@ -31,7 +30,6 @@ test('hit() method of object returned by Ship(3, 0, 4, true)', () => {
     ship.hit(3);
     expect(ship.hits[3]).toEqual(true);
 });
-
 
 test('isSunk() method of object returned by Ship(2, 1, 2)', () => {
     const ship = Ship(2, 1, 2);

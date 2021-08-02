@@ -17,6 +17,7 @@
  * @returns {Object} Object representing a ship.
  */
 const Ship = (x, y, length, isVertical=false) => {
+    // Array as long as `length` argument with booleans set to false.
     let hits = Array(length).fill(false);
 
     /**
