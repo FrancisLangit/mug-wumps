@@ -1,18 +1,13 @@
 import { Square } from "./square";
 
 
-test('Object returned by calling Square(5, 8)', () => {
+test('Properties of object returned by Square(5, 8)', () => {
     const testSquare = Square(5,8);
-    const expectedSquare = {
-        'coordinates': [5, 8],
-        'isOccupied': false,
-        'isHit': false,
-    } 
-    expect(testSquare).toEqual(expectedSquare);
+    expect(testSquare).toHaveProperty('coordinates', [5, 8]);
+    expect(testSquare).toHaveProperty('isOccupied', false);
+    expect(testSquare).toHaveProperty('isHit', false);
 });
 
-test('Square.coordinates of return value of Square(2, 6)', () => {
-    const testSquare = Square(2, 6);
-    const expectedCoordinates = [2, 6];
-    expect(testSquare.coordinates).toEqual(expectedCoordinates);
+test('"coordinates" property of Square(2, 6) return value', () => {
+    expect(Square(2, 6)).toHaveProperty('coordinates', [2,6]);
 });
