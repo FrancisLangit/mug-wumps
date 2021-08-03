@@ -40,7 +40,24 @@ const Ship = (x, y, length, isVertical=false) => {
         });
     }
 
-    return { x, y, length, isVertical, hits, hit, isSunk };
+    /**
+     * Returns array of coordinates where Ship's squares will be placed. 
+     * 
+     * @returns {Array} Contains arrays of coordinates.
+     * 
+     * @example
+     * let ship = Ship(3, 3, 4);
+     * console.log(ship.getCoordinates()); // [[3, 3], [4, 3], [5, 3], [6, 3]]
+     */
+    const getCoordinates = () => {
+        let coordinates = [];
+        for (let i = 0; i < length; i++) {
+            coordinates.push(isVertical ? [x, y + i] : [x + i, y]);
+        }
+        return coordinates;
+    }
+
+    return { x, y, length, isVertical, hits, hit, isSunk, getCoordinates };
 }
 
 
