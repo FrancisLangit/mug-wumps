@@ -20,6 +20,8 @@ test('receiveAttack() of Gameboard() making hit on ships', () => {
     // Expect attack to be rendered on targeted ships.
     expect(gameboard.ships[0].hits[1]).toEqual(true);
     expect(gameboard.ships[1].hits[2]).toEqual(true);
+    // Expect misses property of gameboard to remain empty.
+    expect(gameboard.misses).toEqual([]);
 });
 
 test('receiveAttack() of Gameboard() recording miss', () => {
