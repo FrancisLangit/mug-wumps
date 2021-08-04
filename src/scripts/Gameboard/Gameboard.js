@@ -1,3 +1,16 @@
+/**
+ * Module containing and exporting `Gameboard` factory function.
+ * 
+ * @module Gameboard
+ */
+
+/**
+ * Factory function returning an object representing a gameboard.
+ * 
+ * @namespace
+ * 
+ * @returns {Object} Gameboard object.
+ */
 const Gameboard = () => {
     let ships = [];
     let misses = [];
