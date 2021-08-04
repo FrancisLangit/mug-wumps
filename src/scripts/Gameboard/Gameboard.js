@@ -2,22 +2,26 @@ const Gameboard = () => {
     let ships = [];
     let misses = [];
     
+    /**
+     * Receives an attack and renders a hit on a ship or records a miss
+     * dependents on coordinates passed.
+     * 
+     * @param {int} x X-coordinate of the attack.
+     * @param {int} y Y-coordinate of the attack.
+     * 
+     * @returns {undefined}
+     */
     const receiveAttack = (x, y) => {
         let isHit = false;
         ships.forEach((ship) => {
-            const positions = ship.getPositions();
-            positions.forEach((position, index) => {   
-                let positionJson = JSON.stringify(position);
-                let targetPositionJson = JSON.stringify([x, y]);
-                if (positionJson === targetPositionJson) {
+            ship.getPositions().forEach((position, index) => {   
+                if (position.toString() === [x, y].toString()) {
                     ship.hit(index);
                     isHit = true;
                 }
             });
         });
-        if (!isHit) {
-            misses.push([x, y])  
-        };
+        !isHit && misses.push([x, y]);
     }
 
     /**
