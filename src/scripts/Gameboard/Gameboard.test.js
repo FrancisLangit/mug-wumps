@@ -18,15 +18,14 @@ test('addShip() method of object returned by Gameboard()', () => {
     expect(gameboard.ships[0]).toEqual(ship);
 });
 
-test('receiveAttack() of Gameboard() making hit on ships', () => {
-    // Initialize Gameboard object and fill its ships array.
+test('receiveAttack() of Gameboard() making hit on ship', () => {
+    // Initialize Gameboard object and add a Ship to it.
     let gameboard = Gameboard()
-    gameboard.addShip(Ship(0, 0, 5));
     gameboard.addShip(Ship(5, 5, 3, true));
-    // Render attacks that makes hit.
+    // Render attack that makes a hit.
     gameboard.receiveAttack(5, 7);
     // Expect attack to be rendered on targeted ship.
-    expect(gameboard.ships[1].hits[2]).toEqual(true);
+    expect(gameboard.ships[0].hits[2]).toEqual(true);
     // Expect misses property of gameboard to remain empty.
     expect(gameboard.misses).toEqual([]);
 });
@@ -41,10 +40,11 @@ test('receiveAttack() of Gameboard() recording miss', () => {
 
 test('isAllShipsSunk() method of object returned by Gameboard()', () => {
     // Factory function returning a mock of a Ship object.
-    const _getMockShip = () => { const isSunk = () => true }
-    // Initialize instance of Gameboard and fill its ships array with mocks.
+    const _getMockShip = () => { return { 'isSunk' : () => true } }
+    // Initialize instance of Gameboard and add mock ships to it.
     let gameboard = Gameboard();
-    gameboard.ships = Array(5).fill(_getMockShip());
+    gameboard.addShip(_getMockShip());
+    gameboard.addShip(_getMockShip());
     // Test isAllShipsSunk() method of gameboard instance.
     expect(gameboard.isAllShipsSunk()).toEqual(true);
 });

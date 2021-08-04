@@ -3,6 +3,17 @@ const Gameboard = () => {
     let misses = [];
     
     /**
+     * Pushes a passed `Ship` object into `ships` array.
+     * 
+     * @param {Object} ship `Ship` object to be added to gameboard. 
+     * 
+     * @returns {undefined}
+     */
+    const addShip = (ship) => {
+        ships.push(ship);
+    }
+
+    /**
      * Receives an attack and renders a hit on a ship or records a miss
      * dependents on coordinates passed.
      * 
@@ -36,7 +47,7 @@ const Gameboard = () => {
         }); 
     }
 
-    return { ships, misses, receiveAttack, isAllShipsSunk }
+    return { ships, misses, addShip, receiveAttack, isAllShipsSunk }
 }
 
 
