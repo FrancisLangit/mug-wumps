@@ -3,6 +3,7 @@ const Gameboard = () => {
     let misses = [];
     
     const receiveAttack = (x, y) => {
+        let isHit = false;
         ships.forEach((ship) => {
             const positions = ship.getPositions();
             positions.forEach((position, index) => {   
@@ -10,11 +11,13 @@ const Gameboard = () => {
                 let targetPositionJson = JSON.stringify([x, y]);
                 if (positionJson === targetPositionJson) {
                     ship.hit(index);
-                    return;
+                    isHit = true;
                 }
             });
         });
-        misses.push([x, y]);
+        if (!isHit) {
+            misses.push([x, y])  
+        };
     }
 
     /**
