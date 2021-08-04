@@ -3,23 +3,18 @@ const Gameboard = () => {
     let misses = [];
     
     const receiveAttack = (x, y) => {
-    //     let count = 0;
-    //     let isHit = false;
-    //     while (count !== ships.length && !isHit) {
-    //          if (true === true) {
-
-    //          }
-    //     }
-
-        // count = 0
-        // isHit = false
-        // While (count != ships.length) and (isHit == false)
-            // If [x, y] in ships[count]
-                // hit ship
-                // isHit = true
-            // count++
-        // if isHit == false
-            // record miss
+        ships.forEach((ship) => {
+            const positions = ship.getPositions();
+            positions.forEach((position, index) => {   
+                let positionJson = JSON.stringify(position);
+                let targetPositionJson = JSON.stringify([x, y]);
+                if (positionJson === targetPositionJson) {
+                    ship.hit(index);
+                    return;
+                }
+            });
+        });
+        misses.push([x, y]);
     }
 
     /**

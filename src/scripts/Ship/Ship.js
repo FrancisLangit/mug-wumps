@@ -47,17 +47,17 @@ const Ship = (x, y, length, isVertical=false) => {
      * 
      * @example
      * let ship = Ship(3, 3, 4);
-     * console.log(ship.getCoordinates()); // [[3, 3], [4, 3], [5, 3], [6, 3]]
+     * console.log(ship.getPositions()); // [[3, 3], [4, 3], [5, 3], [6, 3]]
      */
-    const getCoordinates = () => {
-        let coordinates = [];
+    const getPositions = () => {
+        let positions = [];
         for (let i = 0; i < length; i++) {
-            coordinates.push(isVertical ? [x, y + i] : [x + i, y]);
+            positions.push(isVertical ? [x, y + i] : [x + i, y]);
         }
-        return coordinates;
+        return positions;
     }
 
-    return { x, y, length, isVertical, hits, hit, isSunk, getCoordinates };
+    return { x, y, length, isVertical, hits, hit, isSunk, getPositions };
 }
 
 

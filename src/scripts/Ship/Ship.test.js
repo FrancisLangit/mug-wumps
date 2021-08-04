@@ -46,12 +46,12 @@ test('isSunk() method of object returned by Ship(4, 4, 3, true)', () => {
     expect(ship.isSunk()).toEqual(true);
 });
 
-test('getCoordinates() method of Ship(3, 3, 4) return object', () => {
+test('getPositions() method of Ship(3, 3, 4) return object', () => {
     const ship = Ship(3, 3, 4);
-    expect(ship.getCoordinates()).toEqual([[3, 3], [4, 3], [5, 3], [6, 3]]);
+    expect(ship.getPositions()).toEqual([[3, 3], [4, 3], [5, 3], [6, 3]]);
 });
 
-test('getCoordinates() method of Ship(1, 2, 3, true) return object', () => {
+test('getPositions() method of Ship(1, 2, 3, true) return object', () => {
     const ship = Ship(1, 2, 3, true);
-    expect(ship.getCoordinates()).toEqual([[1, 2], [1, 3], [1, 4]]);
+    expect(ship.getPositions()).toEqual([[1, 2], [1, 3], [1, 4]]);
 });
