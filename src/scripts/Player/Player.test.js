@@ -28,3 +28,10 @@ test('makeAttack() method of object from Player(enemyGameboard)', () => {
     expect(enemyGameboard.ships[0].hits[1]).toEqual(true);
     expect(enemyGameboard.misses[0]).toEqual([5, 5]);
 });
+
+test('makeRandomAttack() calls makeAttack() method', () => {
+    const mockGameboard = { 'receiveAttack' : jest.fn() }
+    const player = Player(mockGameboard);
+    player.makeAttack(0, 0);
+    expect(mockGameboard.receiveAttack).toHaveBeenCalled();
+});
