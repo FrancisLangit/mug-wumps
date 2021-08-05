@@ -1,5 +1,5 @@
-const Player = () => {
-    const makeAttack = () => {
+const Player = (enemyGameboard, isComputer) => {
+    const makeAttack = (x, y) => {
         return undefined;
     }
 
@@ -7,7 +7,7 @@ const Player = () => {
         return undefined;
     }
 
-    return undefined;
+    return isComputer ? { makeRandomAttack } : { makeAttack };
 }
 
 
