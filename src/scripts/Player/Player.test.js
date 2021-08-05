@@ -31,9 +31,23 @@ test('makeAttack() method of object from Player(enemyGameboard)', () => {
     expect(enemyGameboard.misses[0]).toEqual([5, 5]);
 });
 
-// test('makeRandomAttack() calls receiveAttack() method', () => {
-//     const mockGameboard = { 'receiveAttack' : jest.fn() }
-//     const player = Player(mockGameboard);
-//     player.makeAttack(0, 0);
-//     expect(mockGameboard.receiveAttack).toHaveBeenCalled();
-// });
+test('makeRandomAttack() only attacks coordinates not already hit', () => {
+    // Initialize Gameboard and Player object as computer to test.
+    const gameboard = Gameboard();
+    gameboard.addShip(Ship(5, 5, 1));
+
+    const computer = Player(gameboard, true);
+
+    // Attack all coordinates except for [5, 5].
+    for (let x = 0; x < 10; x++) {
+        for (let y = 0; y < 10; y++) {        
+            if ([x, y].toString() !== [5, 5].toString()) {
+                gameboard.receiveAttack(x, y);
+            }    
+        }
+    }
+
+    // Expect makeRandomAttack() to attack [5, 5].
+    computer.makeRandomAttack();
+    expect(gameboard.ships[0].hits[0]).toEqual(true);
+});
