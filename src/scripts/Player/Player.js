@@ -1,10 +1,10 @@
 const Player = (enemyGameboard, isComputer) => {
-    const makeAttack = (x, y) => {
+    const makeRandomAttack = () => {
         return undefined;
     }
 
-    const makeRandomAttack = () => {
-        return undefined;
+    const makeAttack = (x, y) => {
+        enemyGameboard.receiveAttack(x, y);
     }
 
     return isComputer ? { makeRandomAttack } : { makeAttack };
