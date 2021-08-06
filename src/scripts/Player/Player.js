@@ -1,26 +1,24 @@
 const Player = (enemyGameboard, isComputer) => {
     const _isPositionHit = (x, y) => {
-        let isHit = false
-        enemyGameboard.ships.forEach((ship) => {
-            ship.getPositions().forEach((position) => {
-                const isTarget = position.toString() === [x, y].toString();
-                const isPositionHit = position === true
-                if (isTarget && isPositionHit) {
-                    isHit = true;
+        for (const ship of enemyGameboard.ships) {
+            let positions = ship.getPositions();
+            for (let i = 0; i < positions.length; i++) {
+                const position = positions[i].toString();
+                const isInShip = position === [x, y].toString();
+                if (isInShip && ship.hits[i]) {
+                    return true;
                 }
-            });
-        });
-        return isHit;
+            }
+        }
     }
 
     const _isPositionMiss = (x, y) => {
-        let isMiss = false
-        enemyGameboard.misses.forEach((miss) => {
+        for (let i = 0; i < enemyGameboard.misses.length; i++) {
+            const miss = enemyGameboard.misses[i];
             if ([x, y].toString() === miss.toString()) {
-                isMiss = true;
+                return true;
             }
-        });
-        return isMiss;
+        }
     }
     
     const makeRandomAttack = () => {
@@ -34,7 +32,7 @@ const Player = (enemyGameboard, isComputer) => {
         }
         const choiceIndex = Math.floor(Math.random() * choices.length);
         const choice = choices[choiceIndex];
-        enemyGameboard.receiveAttack(choice[0], choice[1]);
+        makeAttack(choice[0], choice[1]);
     }
 
     const makeAttack = (x, y) => {
