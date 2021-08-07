@@ -1,5 +1,6 @@
 import { Computer } from './Computer';
 import { Gameboard } from '../Gameboard/Gameboard';
+import { Ship } from '../Ship/Ship';
 
 
 test('Object returned from calling Computer(enemyGameboard)', () => {
@@ -29,10 +30,6 @@ test('makeRandomAttack() only attacks coordinates not already hit', () => {
     // Expect makeRandomAttack() to attack [5, 5] and [2, 3].
     computer.makeRandomAttack();
     computer.makeRandomAttack();
-
-    console.log(gameboard.ships[0].hits);
-    console.log(gameboard.misses);
-
     expect(gameboard.ships[0].hits[0]).toEqual(true);
     expect(gameboard.misses.slice(-1)[0]).toEqual([2, 3]);
 });
