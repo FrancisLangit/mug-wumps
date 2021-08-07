@@ -9,27 +9,30 @@ test('Object returned from calling Computer(enemyGameboard)', () => {
 });
 
 test('makeRandomAttack() only attacks coordinates not already hit', () => {
-    // Initialize objects to test.
+    // Initialize Gameboard and Computer to test.
     const gameboard = Gameboard();
-    gameboard.addShip(Ship(5, 5, 1));
-
     const computer = Computer(gameboard);
 
-    // Attack all coordinates except for [5, 5] and [2, 3].
+    // Add a ship to the Gameboard object.
+    gameboard.addShip(Ship(5, 5, 1));
+
+    // Attack all coordinates on gameboard except [2, 3] and [5, 5].
+    const twoThree = [2, 3].toString();
+    const fiveFive = [5, 5].toString();
     for (let x = 0; x < 10; x++) {
         for (let y = 0; y < 10; y++) {    
-            let target = [x, y].toString()
-            let isFiveFive = target === [5, 5].toString();
-            let isTwoThree = target === [2, 3].toString();
-            if (!(isFiveFive || isTwoThree)) {
+            const target = [x, y].toString();
+            if (!(target === twoThree || target === fiveFive)) {
                 gameboard.receiveAttack(x, y);
             }    
         }
     }
 
-    // Expect makeRandomAttack() to attack [5, 5] and [2, 3].
+    // Make two consecutive random attacks.
     computer.makeRandomAttack();
     computer.makeRandomAttack();
-    expect(gameboard.ships[0].hits[0]).toEqual(true);
+
+    // Expect makeRandomAttack() to have targeted [2, 3] and [5, 5].
     expect(gameboard.misses.slice(-1)[0]).toEqual([2, 3]);
+    expect(gameboard.ships[0].hits[0]).toEqual(true);
 });
