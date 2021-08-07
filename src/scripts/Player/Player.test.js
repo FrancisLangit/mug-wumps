@@ -6,13 +6,6 @@ import { Ship } from "../Ship/Ship";
 test('Properties of object from Player(enemyGameboard)', () => {
     const player = Player('mockEnemyGameboard');
     expect(player).toHaveProperty('makeAttack');
-    expect(player).not.toHaveProperty('makeRandomAttack');
-});
-
-test('Properties of object from Player(enemyGameboard, true)', () => {
-    const computer = Player('mockEnemyGameboard', true);
-    expect(computer).toHaveProperty('makeRandomAttack');
-    expect(computer).not.toHaveProperty('makeAttack');
 });
 
 test('makeAttack() method of object from Player(enemyGameboard)', () => {
@@ -29,34 +22,4 @@ test('makeAttack() method of object from Player(enemyGameboard)', () => {
     // Assert that targeted ship hit and miss recorded.
     expect(enemyGameboard.ships[0].hits[1]).toEqual(true);
     expect(enemyGameboard.misses[0]).toEqual([5, 5]);
-});
-
-test('makeRandomAttack() only attacks coordinates not already hit', () => {
-    // Initialize objects to test.
-    const gameboard = Gameboard();
-    gameboard.addShip(Ship(5, 5, 1));
-
-    const computer = Player(gameboard, true);
-
-    // Attack all coordinates except for [5, 5] and [2, 3].
-    for (let x = 0; x < 10; x++) {
-        for (let y = 0; y < 10; y++) {    
-            let target = [x, y].toString()
-            let isFiveFive = target === [5, 5].toString();
-            let isTwoThree = target === [2, 3].toString();
-            if (!(isFiveFive || isTwoThree)) {
-                gameboard.receiveAttack(x, y);
-            }    
-        }
-    }
-
-    // Expect makeRandomAttack() to attack [5, 5] and [2, 3].
-    computer.makeRandomAttack();
-    computer.makeRandomAttack();
-
-    console.log(gameboard.ships[0].hits);
-    console.log(gameboard.misses);
-
-    expect(gameboard.ships[0].hits[0]).toEqual(true);
-    expect(gameboard.misses.slice(-1)[0]).toEqual([2, 3]);
 });
