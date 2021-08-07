@@ -9,13 +9,14 @@ test('Properties of object from Player(enemyGameboard)', () => {
 });
 
 test('makeAttack() method of object from Player(enemyGameboard)', () => {
-    // Initialize enemyGameboard and Player objects to test.
+    // Initialize Gameboard and Player to test.
     let enemyGameboard = Gameboard();
-    enemyGameboard.addShip(Ship(0, 1, 3));
-
     let player = Player(enemyGameboard);
+
+    // Add a ship to enemyGameboard.
+    enemyGameboard.addShip(Ship(0, 1, 2));
     
-    // Call player.makeAttack() twice. One for hit, one for miss. 
+    // Call player.makeAttack() for hit and for miss.
     player.makeAttack(1, 1);
     player.makeAttack(5, 5);
     
