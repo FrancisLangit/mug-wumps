@@ -1,7 +1,3 @@
-body {
-    background-color: pink;
-}
-
 @font-face {
     font-family: 'Open Sans Bold';
     src: url('../assets/Open Sans Bold.ttf');
@@ -15,4 +11,14 @@ body {
 @font-face {
     font-family: 'Open Sans Light';
     src: url('../assets/Open Sans Light.ttf');
+}
+
+.gameboard {
+    margin: 10px;
+    display: grid;
+    grid-template-columns: repeat(10, 35px);
+}
+
+.gameboard-cell {
+    border: 1px solid black;
 }

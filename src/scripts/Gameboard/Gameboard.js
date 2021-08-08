@@ -27,13 +27,12 @@ const Gameboard = (isPrefilled=false) => {
     const _getShips = () => {
         let ships = [];
         if (isPrefilled) {
-            ships.add(Ship(0, 0, 5));
-            ships.add(Ship(0, 1, 4));
-            ships.add(Ship(0, 2, 3));
-            ships.add(Ship(0, 3, 3));
-            ships.add(Ship(0, 4, 2));
+            ships.push(Ship(0, 0, 5));
+            ships.push(Ship(0, 1, 4));
+            ships.push(Ship(0, 2, 3));
+            ships.push(Ship(0, 3, 3));
+            ships.push(Ship(0, 4, 2));
         }
-        console.log(ships);
         return ships;
     }
 
