@@ -1,3 +1,6 @@
+import { Ship } from '../Ship/Ship';
+
+
 /**
  * Module containing and exporting `Gameboard` factory function.
  * 
@@ -9,12 +12,31 @@
  * 
  * @namespace
  * 
+ * @param {boolean} isPrefilled `true` if `Gameboard.ships` to be prefilled 
+ *      with `Ship` objects.
+ * 
  * @returns {Object} Gameboard object.
  */
-const Gameboard = () => {
-    let ships = [];
-    let misses = [];
-    
+const Gameboard = (isPrefilled=false) => {
+    /**
+     * Returns an array to contain `Ship` objects of gameboard. Is prefilled
+     * with `Ship` objects if `isPrefilled` argument is `true`.
+     * 
+     * @returns {Array} Array to contain `Ship` objects.
+     */
+    const _getShips = () => {
+        let ships = [];
+        if (isPrefilled) {
+            ships.add(Ship(0, 0, 5));
+            ships.add(Ship(0, 1, 4));
+            ships.add(Ship(0, 2, 3));
+            ships.add(Ship(0, 3, 3));
+            ships.add(Ship(0, 4, 2));
+        }
+        console.log(ships);
+        return ships;
+    }
+
     /**
      * Pushes a passed `Ship` object into `ships` array.
      * 
@@ -59,6 +81,9 @@ const Gameboard = () => {
             return ship.isSunk() === true;
         }); 
     }
+
+    let ships = _getShips();
+    let misses = [];
 
     return { ships, misses, addShip, receiveAttack, isAllShipsSunk }
 }
