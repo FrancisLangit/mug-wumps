@@ -21,15 +21,18 @@ const Game = (() => {
 })();
 
 const UserInterface = (() => {
+    const _renderGameboardCell = (gameboardContainer) => {
+        let cell = document.createElement("div");
+        cell.classList.add('gameboard-cell');
+        gameboardContainer.appendChild(cell);
+    }
+
     const _renderGameboard = (gameboard) => {
         let container = document.createElement('div');
         container.classList.add('gameboard');
     
         for (let i = 0; i < 100; i++) {
-            let cell = document.createElement("div");
-            cell.textContent = i;
-            cell.classList.add('gameboard-cell');
-            container.appendChild(cell);
+            _renderGameboardCell(container);
         };
         document.body.appendChild(container);
     }
