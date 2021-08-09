@@ -86,10 +86,12 @@ const Gameboard = (isPrefilled=false) => {
      * 
      * @param {int} x X-coordinate of target position.
      * @param {int} y Y-coordinate of target position.
+     * @param {boolean} getIsHit `true` if method to return if position is on
+     *      a hit square of a ship.
      * 
      * @returns {boolean} `true` if `[x, y]` on hit square of `Ship`.
      */
-    const isPositionHit = (x, y) => {
+    const isPositionShip = (x, y, getIsHit) => {
         for (const ship of ships) {
             for (const [i, pos] of ship.getPositions().entries()) {
                 if (pos.toString() === [x, y].toString()) {
@@ -123,7 +125,7 @@ const Gameboard = (isPrefilled=false) => {
         addShip,
         receiveAttack,
         isAllShipsSunk,
-        isPositionHit,
+        isPositionShip,
         isPositionMiss,
     }
 }
