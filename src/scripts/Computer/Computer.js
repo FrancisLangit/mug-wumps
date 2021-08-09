@@ -22,8 +22,10 @@ const Computer = (enemyGameboard) => {
     const _getRandomAttackChoices = () => {
         let randomAttackChoices = [];
         for (let x = 0; x < 10; x++) {
-            for (let y = 0; y < 10; y++) {      
-                if (!enemyGameboard.isPositionHit(x, y) && !enemyGameboard.isPositionMiss(x, y)) {
+            for (let y = 0; y < 10; y++) {
+                const isPosHit = enemyGameboard.isPositionHit(x, y);
+                const isPosMiss = enemyGameboard.isPositionMiss(x, y);
+                if (!isPosHit && !isPosMiss) {
                     randomAttackChoices.push([x, y]);
                 }
             }
