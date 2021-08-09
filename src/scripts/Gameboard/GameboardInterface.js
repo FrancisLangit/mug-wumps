@@ -1,10 +1,27 @@
+/**
+ * Returns a div node that renders a `Gameboard` object.
+ * 
+ * @param {Object} gameboard `Gameboard` object to render. 
+ * 
+ * @returns {HTMLElement} `div` rendering a gameboard.
+ */
 const GameboardInterface = (gameboard) => {
+    /**
+     * Returns a grid item `div` representing gameboard cell.
+     * 
+     * @returns {HTMLElement} Cell of gameboard grid.
+     */
     const _getCell = () => {
         let cell = document.createElement("div");
         cell.classList.add('gameboard-cell');
         return cell;
     }
 
+    /**
+     * Returns an `inline-grid` div representing grid of gameboard.
+     * 
+     * @returns {HTMLElement} Grid of gameboard.
+     */
     const _getGrid = () => {
         let grid = document.createElement('div');
         grid.classList.add('gameboard');
