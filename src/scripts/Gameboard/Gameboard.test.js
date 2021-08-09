@@ -63,7 +63,7 @@ test('isPositionShip() method of Gameboard object if getIsHit true', () => {
     gameboard.receiveAttack(2, 3);
     gameboard.receiveAttack(2, 4);
     expect(gameboard.isPositionShip(2, 3, true)).toEqual(true);
-    expect(gameboard.isPositionShip(2, 3, true)).toEqual(false);
+    expect(gameboard.isPositionShip(2, 4, true)).toEqual(false);
 });
 
 test('isPositionMiss() method of Gameboard object', () => {

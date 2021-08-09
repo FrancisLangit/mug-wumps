@@ -87,7 +87,7 @@ const Gameboard = (isPrefilled=false) => {
      * @param {int} x X-coordinate of target position.
      * @param {int} y Y-coordinate of target position.
      * @param {boolean} getIsHit `true` if method to return if position is on
-     *      a hit square of a ship.
+     *      a ship AND if it is hit.
      * 
      * @returns {boolean} `true` if `[x, y]` on hit square of `Ship`.
      */
@@ -95,10 +95,11 @@ const Gameboard = (isPrefilled=false) => {
         for (const ship of ships) {
             for (const [i, pos] of ship.getPositions().entries()) {
                 if (pos.toString() === [x, y].toString()) {
-                    return ship.hits[i];
+                    return getIsHit ? ship.hits[i] : true;
                 }
             }
         }
+        return false;
     }
 
     /**
