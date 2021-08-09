@@ -9,6 +9,8 @@ test('Properties of object returned by Gameboard()', () => {
     expect(gameboard).toHaveProperty('addShip');
     expect(gameboard).toHaveProperty('receiveAttack');
     expect(gameboard).toHaveProperty('isAllShipsSunk');
+    expect(gameboard).toHaveProperty('isPositionShip');
+    expect(gameboard).toHaveProperty('isPositionMiss');
 });
 
 test('addShip() method of object returned by Gameboard()', () => {
@@ -47,4 +49,25 @@ test('isAllShipsSunk() method of object returned by Gameboard()', () => {
     gameboard.addShip(_getMockShip());
     // Test isAllShipsSunk() method of gameboard instance.
     expect(gameboard.isAllShipsSunk()).toEqual(true);
+});
+
+test('isPositionShip() method of Gameboard object', () => {
+    const gameboard = Gameboard();
+    gameboard.addShip(Ship(5, 5, 1));
+    expect(gameboard.isPositionShip(5, 5)).toEqual(true);
+});
+
+test('isPositionShip() method of Gameboard object if getIsHit true', () => {
+    const gameboard = Gameboard();
+    gameboard.addShip(Ship(2, 3, 1));
+    gameboard.receiveAttack(2, 3);
+    gameboard.receiveAttack(2, 4);
+    expect(gameboard.isPositionShip(2, 3, true)).toEqual(true);
+    expect(gameboard.isPositionShip(2, 3, true)).toEqual(false);
+});
+
+test('isPositionMiss() method of Gameboard object', () => {
+    const gameboard = Gameboard();
+    gameboard.receiveAttack(0, 0);
+    expect(gameboard.isPositionMiss(0, 0)).toEqual(true);
 });
