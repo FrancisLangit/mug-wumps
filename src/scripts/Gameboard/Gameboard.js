@@ -81,10 +81,51 @@ const Gameboard = (isPrefilled=false) => {
         }); 
     }
 
+    /**
+     * Returns `true` if position on hit square of one of gameboard's ships.
+     * 
+     * @param {int} x X-coordinate of target position.
+     * @param {int} y Y-coordinate of target position.
+     * 
+     * @returns {boolean} `true` if `[x, y]` on hit square of `Ship`.
+     */
+    const isPositionHit = (x, y) => {
+        for (const ship of ships) {
+            for (const [i, pos] of ship.getPositions().entries()) {
+                if (pos.toString() === [x, y].toString()) {
+                    return ship.hits[i];
+                }
+            }
+        }
+    }
+
+    /**
+     * Returns `true` if coordinates in `misses` array.
+     * 
+     * @param {int} x X-coordinate of target position.
+     * @param {int} y Y-coordinate of target position.
+     * 
+     * @returns {boolean} `true` if `[x, y]` in `misses`.
+     */
+    const isPositionMiss = (x, y) => {
+        const missesAsString = JSON.stringify(misses);
+        const position = JSON.stringify([x, y]);
+        return missesAsString.indexOf(position) !== -1;
+    }
+
     let ships = _getShips();
     let misses = [];
 
-    return { ships, misses, addShip, receiveAttack, isAllShipsSunk }
+    return { 
+        ships, 
+        misses,
+
+        addShip,
+        receiveAttack,
+        isAllShipsSunk,
+        isPositionHit,
+        isPositionMiss,
+    }
 }
 
 

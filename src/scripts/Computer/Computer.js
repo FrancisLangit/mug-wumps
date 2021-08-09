@@ -15,38 +15,6 @@
  */
 const Computer = (enemyGameboard) => {
     /**
-     * Returns `true` if coordinates on hit square of `Ship`.
-     * 
-     * @param {int} x X-coordinate of target position.
-     * @param {int} y Y-coordinate of target position.
-     * 
-     * @returns {boolean} `true` if `[x, y]` on hit square of `Ship`.
-     */
-    const _isPositionHit = (x, y) => {
-        for (const ship of enemyGameboard.ships) {
-            for (const [i, pos] of ship.getPositions().entries()) {
-                if (pos.toString() === [x, y].toString()) {
-                    return ship.hits[i];
-                }
-            }
-        }
-    }
-
-    /**
-     * Returns `true` if coordinates in `enemyGameboard.misses`.
-     * 
-     * @param {int} x X-coordinate of target position.
-     * @param {int} y Y-coordinate of target position.
-     * 
-     * @returns {boolean} `true` if `[x, y]` in `enemyGameboard.misses`.
-     */
-    const _isPositionMiss = (x, y) => {
-        const misses = JSON.stringify(enemyGameboard.misses);
-        const position = JSON.stringify([x, y]);
-        return misses.indexOf(position) !== -1;
-    }
-
-    /**
      * Returns an array of positions that have yet to be hit.
      * 
      * @returns {Array} Array of `[x ,y]` positions.
@@ -55,7 +23,7 @@ const Computer = (enemyGameboard) => {
         let randomAttackChoices = [];
         for (let x = 0; x < 10; x++) {
             for (let y = 0; y < 10; y++) {      
-                if (!_isPositionHit(x, y) && !_isPositionMiss(x, y)) {
+                if (!enemyGameboard.isPositionHit(x, y) && !enemyGameboard.isPositionMiss(x, y)) {
                     randomAttackChoices.push([x, y]);
                 }
             }
