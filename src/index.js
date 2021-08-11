@@ -11,6 +11,9 @@ const UserInterface = (() => {
     playerGameboard.receiveAttack(0, 0);
     playerGameboard.receiveAttack(7, 7);
 
+    computerGameboard.receiveAttack(0, 0);
+    computerGameboard.receiveAttack(7, 7);
+
     document.body.appendChild(GameboardInterface(playerGameboard));
-    document.body.appendChild(GameboardInterface(computerGameboard));
+    document.body.appendChild(GameboardInterface(computerGameboard, true));
 })();

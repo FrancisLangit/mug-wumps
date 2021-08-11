@@ -5,7 +5,7 @@
  * 
  * @returns {HTMLElement} `div` rendering a gameboard.
  */
-const GameboardInterface = (gameboard) => {
+const GameboardInterface = (gameboard, isComputer) => {
     /**
      * Returns a grid item `div` representing gameboard cell.
      * 
@@ -22,7 +22,7 @@ const GameboardInterface = (gameboard) => {
             return 'miss';
         } else if (gameboard.isPositionShip(x, y, true)) {
             return 'hit';
-        } else if (gameboard.isPositionShip(x, y)) {
+        } else if (gameboard.isPositionShip(x, y)  && !isComputer) {
             return 'ship';
         }
     } 
