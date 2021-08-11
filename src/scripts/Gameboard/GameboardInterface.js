@@ -27,9 +27,6 @@ const GameboardInterface = (gameboard) => {
         grid.classList.add('gameboard');
         for (let x = 0; x < 10; x++) {
             for (let y = 0; y < 10; y++) {
-                let cell = _getCell();
-                
-
                 grid.appendChild(_getCell());
             }
         };

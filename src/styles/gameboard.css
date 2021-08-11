@@ -1,16 +1,22 @@
 .gameboard {
     display: inline-grid;
     grid-template-columns: repeat(10, 30px);
+    grid-gap: 3px;
 
     margin: 10px;
-    
-    border-bottom: 1px solid black;
-    border-left: 1px solid black;
 }
 
 .gameboard-cell {
-    padding: 15px;
+    width: 30px; 
+    height: 30px;
 
-    border-top: 1px solid black;
-    border-right: 1px solid black;
+    border: 0.5px solid black;
+}
+
+.gameboard-cell:hover {
+    background-color: rgb(235, 235, 235);
+}
+
+.ship {
+    background-color: black;
 }
