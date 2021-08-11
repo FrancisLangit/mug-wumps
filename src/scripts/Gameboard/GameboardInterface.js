@@ -2,6 +2,7 @@
  * Returns a div node that renders a `Gameboard` object.
  * 
  * @param {Object} gameboard `Gameboard` object to render. 
+ * @param {Object} isComputer `true` if `Gameboard` object is computer's.
  * 
  * @returns {HTMLElement} `div` rendering a gameboard.
  */
@@ -14,6 +15,9 @@ const GameboardInterface = (gameboard, isComputer) => {
     const _getCell = () => {
         let cell = document.createElement("div");
         cell.classList.add('gameboard-cell');
+        if (isComputer) {
+            cell.classList.add('gameboard-cell-computer');
+        }
         return cell;
     }
 

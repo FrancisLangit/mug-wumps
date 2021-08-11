@@ -13,7 +13,7 @@
     border: 0.5px solid black;
 }
 
-.gameboard-cell:hover {
+.gameboard-cell-computer:hover {
     background-color: rgb(235, 235, 235);
 
     cursor: pointer;
