@@ -9,18 +9,23 @@ const GameboardInterface = (gameboard) => {
     /**
      * Returns a grid item `div` representing gameboard cell.
      * 
-     * @param {boolean} isShip `true` if cell displayed as a Ship's square. 
-     * 
      * @returns {HTMLElement} Cell of gameboard grid.
      */
-    const _getCell = (isShip=false) => {
+    const _getCell = () => {
         let cell = document.createElement("div");
         cell.classList.add('gameboard-cell');
-        if (isShip) {
-            cell.classList.add('ship');
-        }
         return cell;
     }
+
+    const _getCellClass = (x, y) => {
+        if (gameboard.isPositionMiss(x, y)) {
+            return 'miss';
+        } else if (gameboard.isPositionShip(x, y, true)) {
+            return 'hit';
+        } else if (gameboard.isPositionShip(x, y)) {
+            return 'ship';
+        }
+    } 
 
     /**
      * Returns an `inline-grid` div representing grid of gameboard.
@@ -32,11 +37,9 @@ const GameboardInterface = (gameboard) => {
         grid.classList.add('gameboard');
         for (let x = 0; x < 10; x++) {
             for (let y = 0; y < 10; y++) {
-                if (gameboard.isPositionShip(x, y)) {
-                    grid.appendChild(_getCell(true));
-                } else {
-                    grid.appendChild(_getCell());
-                }
+                let cell = _getCell();
+                cell.classList.add(_getCellClass(x, y));
+                grid.appendChild(cell);
             }
         };
         return grid;

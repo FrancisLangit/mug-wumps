@@ -6,6 +6,11 @@ import { GameboardInterface } from './scripts/Gameboard/GameboardInterface';
 
 
 const UserInterface = (() => {
-    document.body.appendChild(GameboardInterface(Game.playerGameboard));
-    document.body.appendChild(GameboardInterface(Game.computerGameboard));
+    let { playerGameboard, computerGameboard, player, Computer } = Game;
+
+    playerGameboard.receiveAttack(0, 0);
+    playerGameboard.receiveAttack(7, 7);
+
+    document.body.appendChild(GameboardInterface(playerGameboard));
+    document.body.appendChild(GameboardInterface(computerGameboard));
 })();
