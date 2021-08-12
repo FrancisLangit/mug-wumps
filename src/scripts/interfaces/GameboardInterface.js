@@ -1,3 +1,6 @@
+import { UserInterface } from "../UserInterface";
+
+
 /**
  * Returns a div node that renders a `Gameboard` object.
  * 
@@ -6,7 +9,7 @@
  * 
  * @returns {HTMLElement} `div` rendering a gameboard.
  */
-const GameboardInterface = (gameboard, update, isComputer) => {
+const GameboardInterface = (gameboard, isComputer) => {
     /**
      * Returns a grid item `div` representing gameboard cell.
      * 
@@ -18,7 +21,7 @@ const GameboardInterface = (gameboard, update, isComputer) => {
         if (isComputer) {
             cell.addEventListener('click', () => {
                 gameboard.receiveAttack(x, y);
-                update();
+                UserInterface.update();
             });
         }
 
