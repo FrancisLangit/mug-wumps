@@ -1,6 +1,6 @@
-import { Computer } from './scripts/Computer/Computer';
-import { Gameboard } from './scripts/Gameboard/Gameboard';
-import { Player } from './scripts/Player/Player';
+import { Computer } from '../Computer/Computer';
+import { Gameboard } from '../Gameboard/Gameboard';
+import { Player } from '../Player/Player';
 
 
 const Game = (() => {
