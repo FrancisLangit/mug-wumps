@@ -1,5 +1,5 @@
 import { Game } from './objects/Game';
-import { GameboardInterface } from './interfaces/GameboardInterface';
+import { GameboardDisplay } from './displays/GameboardDisplay';
 
 
 const UserInterface = (() => {
@@ -8,8 +8,8 @@ const UserInterface = (() => {
     const _getGameboards = () => {
         const gameboardsContainer = document.createElement('div');
         gameboardsContainer.append(
-            GameboardInterface(Game.playerGameboard),
-            GameboardInterface(Game.computerGameboard, true),
+            GameboardDisplay(Game.playerGameboard),
+            GameboardDisplay(Game.computerGameboard, true),
         );
         return gameboardsContainer;
     }
