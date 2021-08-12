@@ -5,14 +5,30 @@ import { GameboardInterface } from './scripts/Gameboard/GameboardInterface';
 
 
 const UserInterface = (() => {
-    let { playerGameboard, computerGameboard, player, Computer } = Game;
+    const root = document.getElementById('root');
 
-    playerGameboard.receiveAttack(0, 0);
-    playerGameboard.receiveAttack(7, 7);
+    const _getGameboards = () => {
+        const gameboardsContainer = document.createElement('div');
+        gameboardsContainer.append(
+            GameboardInterface(Game.playerGameboard, update),
+            GameboardInterface(Game.computerGameboard, update, true),
+        );
+        return gameboardsContainer;
+    }
 
-    computerGameboard.receiveAttack(0, 0);
-    computerGameboard.receiveAttack(7, 7);
+    const _setUp = () => {
+        root.appendChild(_getGameboards());
+    }
 
-    document.body.appendChild(GameboardInterface(playerGameboard));
-    document.body.appendChild(GameboardInterface(computerGameboard, true));
+    const update = () => {
+        root.innerHTML = '';
+        _setUp();
+    }
+
+    _setUp()
+
+    return { update }
 })();
+
+
+export { UserInterface }

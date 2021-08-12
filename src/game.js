@@ -10,6 +10,12 @@ const Game = (() => {
     let player = Player(computerGameboard);
     let computer = Computer(playerGameboard);
 
+    // Temporary attacks to aid in visualization.
+    playerGameboard.receiveAttack(0, 0);
+    playerGameboard.receiveAttack(7, 7);
+    computerGameboard.receiveAttack(0, 0);
+    computerGameboard.receiveAttack(7, 7);
+
     return { 
         playerGameboard, 
         computerGameboard,

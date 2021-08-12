@@ -1,23 +1,32 @@
 /**
  * Returns a div node that renders a `Gameboard` object.
  * 
- * @param {Object} gameboard `Gameboard` object to render. 
+ * @param {Object} gameboard `Gameboard` object to render.
  * @param {Object} isComputer `true` if `Gameboard` object is computer's.
  * 
  * @returns {HTMLElement} `div` rendering a gameboard.
  */
-const GameboardInterface = (gameboard, isComputer) => {
+const GameboardInterface = (gameboard, update, isComputer) => {
     /**
      * Returns a grid item `div` representing gameboard cell.
      * 
      * @returns {HTMLElement} Cell of gameboard grid.
      */
-    const _getCell = () => {
+    const _getCell = (x, y) => {
         let cell = document.createElement("div");
-        cell.classList.add('gameboard-cell');
+
         if (isComputer) {
-            cell.classList.add('gameboard-cell-computer');
+            cell.addEventListener('click', () => {
+                gameboard.receiveAttack(x, y);
+                update();
+            });
         }
+
+        cell.classList.add('cell');
+        if (isComputer) {
+            cell.classList.add('cell-computer');
+        }
+
         return cell;
     }
 
@@ -31,11 +40,11 @@ const GameboardInterface = (gameboard, isComputer) => {
      */
     const _getCellClass = (x, y) => {
         if (gameboard.isPositionMiss(x, y)) {
-            return 'miss';
+            return 'cell-miss';
         } else if (gameboard.isPositionShip(x, y, true)) {
-            return 'hit';
+            return 'cell-hit';
         } else if (gameboard.isPositionShip(x, y)  && !isComputer) {
-            return 'ship';
+            return 'cell-ship';
         }
     } 
 
@@ -49,7 +58,7 @@ const GameboardInterface = (gameboard, isComputer) => {
         grid.classList.add('gameboard');
         for (let x = 0; x < 10; x++) {
             for (let y = 0; y < 10; y++) {
-                let cell = _getCell();
+                let cell = _getCell(x, y);
                 cell.classList.add(_getCellClass(x, y));
                 grid.appendChild(cell);
             }
