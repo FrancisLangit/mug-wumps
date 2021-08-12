@@ -1,7 +1,6 @@
 import './styles/style.css';
 
 import { Game } from './game';
-
 import { GameboardInterface } from './scripts/Gameboard/GameboardInterface';
 
 

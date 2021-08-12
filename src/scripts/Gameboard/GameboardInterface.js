@@ -21,6 +21,14 @@ const GameboardInterface = (gameboard, isComputer) => {
         return cell;
     }
 
+    /**
+     * Returns class of a specific cell on the gameboard.
+     * 
+     * @param {int} x X-coordinate of cell's position.
+     * @param {int} y Y-coordinate of cell's position
+     * 
+     * @returns {string} Class of the cell of passed coordinates.
+     */
     const _getCellClass = (x, y) => {
         if (gameboard.isPositionMiss(x, y)) {
             return 'miss';
