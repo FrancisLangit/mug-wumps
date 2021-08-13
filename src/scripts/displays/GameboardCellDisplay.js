@@ -3,7 +3,7 @@ import { UserInterface } from "../UserInterface";
 
 const GameboardCellDisplay = (x, y, gameboard, isComputer) => {
     const _getClasses = () => {
-        let classes = ['cell']; 
+        let classes = ['cell'];
 
         if (isComputer) {
             classes.push('cell-computer');
@@ -24,7 +24,7 @@ const GameboardCellDisplay = (x, y, gameboard, isComputer) => {
         gameboard.receiveAttack(x, y);
         UserInterface.update();
     }
-    
+
     let cell = document.createElement('div');
     cell.classList.add(..._getClasses());
     cell.addEventListener('click', _renderAttack);

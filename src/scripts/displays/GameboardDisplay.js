@@ -1,5 +1,4 @@
 import { GameboardCellDisplay } from "./GameboardCellDisplay";
-import { UserInterface } from "../UserInterface";
 
 
 /**
@@ -11,28 +10,18 @@ import { UserInterface } from "../UserInterface";
  * @returns {HTMLElement} `div` rendering a gameboard.
  */
 const GameboardDisplay = (gameboard, isComputer) => {
-    /**
-     * Returns an `inline-grid` div representing grid of gameboard.
-     * 
-     * @returns {HTMLElement} Grid of gameboard.
-     */
-    const _getGrid = () => {
-        let grid = document.createElement('div');
-        grid.classList.add('gameboard');
-        for (let x = 0; x < 10; x++) {
-            for (let y = 0; y < 10; y++) {
-                const cell = 
-                    GameboardCellDisplay(x, y, gameboard, isComputer);
-                grid.appendChild(cell);
-            }
-        };
-        return grid;
-    }
+    let grid = document.createElement('div');
+    grid.classList.add('gameboard');
+    for (let x = 0; x < 10; x++) {
+        for (let y = 0; y < 10; y++) {
+            grid.append(GameboardCellDisplay(x, y, gameboard, isComputer));
+        }
+    };
 
-    let gridContainer = document.createElement('div');
-    gridContainer.appendChild(_getGrid());
+    let container = document.createElement('div');
+    container.appendChild(grid);
 
-    return gridContainer;
+    return container;
 }
 
 
