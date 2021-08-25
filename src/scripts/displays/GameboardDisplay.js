@@ -2,7 +2,15 @@ import { GameboardCellDisplay } from "./GameboardCellDisplay";
 
 
 /**
- * Returns a div node that renders a `Gameboard` object.
+ * Module that returns and exports GameboardDisplay function.
+ * 
+ * @module GameboardDisplay
+ */
+
+/**
+ * Returns a `div` node that renders a `Gameboard` object.
+ * 
+ * @namespace
  * 
  * @param {Object} gameboard `Gameboard` object to render.
  * @param {Object} isComputer `true` if `Gameboard` object is computer's.
