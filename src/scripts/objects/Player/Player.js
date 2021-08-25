@@ -1,10 +1,4 @@
 /**
- * Module containing and exporting `Player` factory function.
- * 
- * @module Player
- */
-
-/**
  * Returns a `Player` object that can be controlled by the user.
  * 
  * @namespace

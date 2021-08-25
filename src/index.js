@@ -1,4 +1,4 @@
 import './styles/style.css';
+import { UserInterface } from './scripts/UserInterface';
 
-import { Gameboard } from './scripts/Gameboard/Gameboard';
-import { Ship } from './scripts/Ship/Ship';
+UserInterface.setUp();
