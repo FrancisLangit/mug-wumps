@@ -1,6 +1,7 @@
 import { Computer } from './Computer/Computer';
 import { Gameboard } from './Gameboard/Gameboard';
 import { Player } from './Player/Player';
+import { UserInterface } from '../UserInterface';
 
 
 /**
@@ -26,7 +27,9 @@ const Game = (() => {
      */
     const runTurn = (playerAttackX, playerAttackY) => {
         computerGameboard.receiveAttack(playerAttackX, playerAttackY);
+        UserInterface.update();
         computer.makeRandomAttack();
+        setTimeout(UserInterface.update, 1000);
     }
 
     return { 

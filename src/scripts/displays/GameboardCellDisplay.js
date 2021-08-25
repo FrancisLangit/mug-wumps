@@ -38,13 +38,12 @@ const GameboardCellDisplay = (x, y, gameboard, isComputer) => {
     }
 
     /**
-     * Renders a turn of the game and updates the user interface accordingly.
+     * Renders a turn of the game given attack of user on cell.
      * 
      * @returns {undefined}
      */
     const _renderTurn = () => {
         Game.runTurn(x, y);
-        UserInterface.update();
     }
 
     let cell = document.createElement('div');
