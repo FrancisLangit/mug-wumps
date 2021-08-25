@@ -3,6 +3,11 @@ import { Gameboard } from './Gameboard/Gameboard';
 import { Player } from './Player/Player';
 
 
+/**
+ * Module holding the game logic of the program.
+ * 
+ * @module Game
+ */
 const Game = (() => {
     let playerGameboard = Gameboard(true);
     let computerGameboard = Gameboard(true);
