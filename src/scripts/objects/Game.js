@@ -4,7 +4,7 @@ import { Player } from './Player/Player';
 
 
 /**
- * Module holding the game logic of the program.
+ * Module holding the objects of the application.
  * 
  * @module Game
  */
@@ -15,17 +15,25 @@ const Game = (() => {
     let player = Player(computerGameboard);
     let computer = Computer(playerGameboard);
 
-    // Temporary attacks to aid in visualization.
-    playerGameboard.receiveAttack(0, 0);
-    playerGameboard.receiveAttack(7, 7);
-    computerGameboard.receiveAttack(0, 0);
-    computerGameboard.receiveAttack(7, 7);
+    /**
+     * Runs a turn of the game, whereby the Player and Computer make moves to
+     * attack against each other.
+     * 
+     * @param {int} playerAttackX X-coordinate of Player's attack.
+     * @param {int} playerAttackY Y-coordinate of Player's attack.
+     */
+    const runTurn = (playerAttackX, playerAttackY) => {
+        computerGameboard.receiveAttack(playerAttackX, playerAttackY);
+        computer.makeRandomAttack();
+    }
 
     return { 
         playerGameboard, 
         computerGameboard,
         player, 
-        computer, 
+        computer,
+
+        runTurn, 
     }
 })();
 

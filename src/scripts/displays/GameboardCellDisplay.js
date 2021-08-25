@@ -1,3 +1,4 @@
+import { Game } from "../objects/Game";
 import { UserInterface } from "../UserInterface";
 
 
@@ -37,18 +38,18 @@ const GameboardCellDisplay = (x, y, gameboard, isComputer) => {
     }
 
     /**
-     * Renders an attack onto the cell and updates its display.
+     * Renders a turn of the game and updates the user interface accordingly.
      * 
      * @returns {undefined}
      */
-    const _renderAttack = () => {
-        gameboard.receiveAttack(x, y);
+    const _renderTurn = () => {
+        Game.runTurn(x, y);
         UserInterface.update();
     }
 
     let cell = document.createElement('div');
     cell.classList.add(..._getClasses());
-    cell.addEventListener('click', _renderAttack);
+    cell.addEventListener('click', _renderTurn);
 
     return cell;
 }

@@ -3,7 +3,7 @@ import { GameboardDisplay } from './displays/GameboardDisplay';
 
 
 /**
- * Immediately invoked function expression (IIFE) module holding methods for 
+ * Immediately invoked function expression (IIFE) module holding methods for
  * the updating of the user interface.
  * 
  * @module UserInterface
