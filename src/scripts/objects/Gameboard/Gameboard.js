@@ -2,12 +2,6 @@ import { Ship } from '../Ship/Ship';
 
 
 /**
- * Module containing and exporting `Gameboard` factory function.
- * 
- * @module Gameboard
- */
-
-/**
  * Factory function returning an object representing a gameboard.
  * 
  * @namespace

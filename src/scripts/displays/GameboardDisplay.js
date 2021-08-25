@@ -2,12 +2,6 @@ import { GameboardCellDisplay } from "./GameboardCellDisplay";
 
 
 /**
- * Module that returns and exports GameboardDisplay function.
- * 
- * @module GameboardDisplay
- */
-
-/**
  * Returns a `div` node that renders a `Gameboard` object.
  * 
  * @namespace

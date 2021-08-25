@@ -1,10 +1,4 @@
 /**
- * Module holding and containing `Ship` factory function.
- * 
- * @module Ship
- */
-
-/**
  * Factory function returning object representing a ship on the gameboard.
  * 
  * @namespace

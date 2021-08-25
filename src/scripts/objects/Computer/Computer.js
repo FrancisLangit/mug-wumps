@@ -1,10 +1,4 @@
 /**
- * Module contaning and exporting `Computer` factory function.
- * 
- * @module Computer
- */
-
-/**
  * Factory function returning `Computer` object capable of random attacks.
  * 
  * @namespace
