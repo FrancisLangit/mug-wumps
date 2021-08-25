@@ -17,7 +17,9 @@ const Game = (() => {
 
     /**
      * Runs a turn of the game, whereby the Player and Computer make moves to
-     * attack against each other.
+     * attack each other.
+     * 
+     * @memberof module:Game
      * 
      * @param {int} playerAttackX X-coordinate of Player's attack.
      * @param {int} playerAttackY Y-coordinate of Player's attack.
