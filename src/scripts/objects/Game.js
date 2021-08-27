@@ -12,9 +12,21 @@ import { UserInterface } from '../UserInterface';
 const Game = (() => {
     let playerGameboard = Gameboard(true);
     let computerGameboard = Gameboard(true);
-
     let player = Player(computerGameboard);
     let computer = Computer(playerGameboard);
+
+    /**
+     * Checks if someone won the game and renders such effect accordingly.
+     * 
+     * @returns {undefined}
+     */
+    const _checkWinner = () => {
+        const isPlayerWon = computerGameboard.isAllShipsSunk();
+        const isComputerWon = playerGameboard.isAllShipsSunk();
+        if (isPlayerWon || isComputerWon) {
+            UserInterface.displayWinner();
+        }
+    }
 
     /**
      * Runs a turn of the game, whereby the Player and Computer make moves to
@@ -30,6 +42,7 @@ const Game = (() => {
         UserInterface.update(true);
         computer.makeRandomAttack();
         setTimeout(UserInterface.update, 500);
+        _checkWinner();
     }
 
     return { 

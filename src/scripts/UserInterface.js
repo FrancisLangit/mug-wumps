@@ -3,14 +3,13 @@ import { GameboardDisplay } from './displays/GameboardDisplay';
 
 
 /**
- * Immediately invoked function expression (IIFE) module holding methods for
- * the updating of the user interface.
+ * Module holding methods that update the user interface.
  * 
  * @module UserInterface
  */
 const UserInterface = (() => {
     const root = document.getElementById('root');
-
+    
     /**
      * Returns `div` holding display of both user and computer gameboard.
      * 
@@ -43,7 +42,18 @@ const UserInterface = (() => {
         root.appendChild(_getGameboards(isComputerTurn));
     }
 
-    return { update }
+    /**
+     * Displays on the user interface the respective winner of the game.
+     * 
+     * @param {boolean} isComputerWon `true` if to display that computer won.
+     * 
+     * @returns {undefined}
+     */
+    const displayWinner = (isComputerWon) => {
+        isComputerWon ? 'Computer wins.' : 'You win!';
+    }
+
+    return { update, displayWinner }
 })();
 
 

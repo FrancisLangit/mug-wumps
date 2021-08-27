@@ -72,7 +72,7 @@ const Gameboard = (isPrefilled=false) => {
     const isAllShipsSunk = () => {
         return ships.every((ship) => {
             return ship.isSunk() === true;
-        }); 
+        });
     }
 
     /**
