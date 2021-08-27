@@ -40,9 +40,7 @@ const GameboardDisplay = (gameboard, isComputer) => {
         return grid;
     }
 
-    let gameboardDisplay = document.createElement('div');
-    gameboardDisplay.appendChild(_getGrid());
-    return gameboardDisplay;
+    return _getGrid();
 }
 
 

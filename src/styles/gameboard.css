@@ -19,10 +19,6 @@
     cursor: pointer;
 }
 
-.cell-ship {
-    background-color: rgb(205, 205, 205);
-}
-
 .cell-hit {
     background-color: rgb(200, 105, 105);
     
@@ -33,4 +29,8 @@
     background-color: rgb(135, 165, 235);
     
     pointer-events: none;
+}
+
+.cell-ship {
+    background-color: rgb(205, 205, 205);
 }
