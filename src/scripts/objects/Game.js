@@ -24,7 +24,7 @@ const Game = (() => {
         const isPlayerWon = computerGameboard.isAllShipsSunk();
         const isComputerWon = playerGameboard.isAllShipsSunk();
         if (isPlayerWon || isComputerWon) {
-            UserInterface.displayWinner();
+            UserInterface.displayWinner(isComputerWon);
         }
     }
 
@@ -41,7 +41,7 @@ const Game = (() => {
         computerGameboard.receiveAttack(playerAttackX, playerAttackY);
         UserInterface.update(true);
         computer.makeRandomAttack();
-        setTimeout(UserInterface.update, 500);
+        setTimeout(UserInterface.update, 0);
         _checkWinner();
     }
 

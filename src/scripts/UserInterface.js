@@ -50,7 +50,7 @@ const UserInterface = (() => {
      * @returns {undefined}
      */
     const displayWinner = (isComputerWon) => {
-        isComputerWon ? 'Computer wins.' : 'You win!';
+        isComputerWon ? alert('Computer wins.') : alert('You win!');
     }
 
     return { update, displayWinner }
