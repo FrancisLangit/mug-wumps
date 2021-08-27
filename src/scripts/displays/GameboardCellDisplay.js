@@ -1,5 +1,4 @@
 import { Game } from "../objects/Game";
-import { UserInterface } from "../UserInterface";
 
 
 /**

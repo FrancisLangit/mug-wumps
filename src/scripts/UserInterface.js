@@ -10,33 +10,35 @@ import { GameboardDisplay } from './displays/GameboardDisplay';
  */
 const UserInterface = (() => {
     const root = document.getElementById('root');
-
+    
     /**
      * Private function returning `div` holding display of both user and
      * computer gameboard.
      * 
      * @memberof module:UserInterface
      * 
+     * @param {boolean} isComputerTurn `true` if turn of game computer's.
+     * 
      * @returns {HTMLElement} `div` holding game's gameboards.
      */
-    const _getGameboards = () => {
+    const _getGameboards = (isComputerTurn) => {
+        const playerGameboardDisplay = GameboardDisplay(
+            Game.playerGameboard, 
+            isComputerTurn ? false : true, 
+            false,
+        );
+        const computerGameboardDisplay = GameboardDisplay(
+            Game.computerGameboard, 
+            isComputerTurn ? true : false, 
+            true,
+        );
+
         const gameboardsContainer = document.createElement('div');
         gameboardsContainer.append(
-            GameboardDisplay(Game.playerGameboard),
-            GameboardDisplay(Game.computerGameboard, true),
+            playerGameboardDisplay,
+            computerGameboardDisplay,
         );
         return gameboardsContainer;
-    }
-
-    /**
-     * Fills up the "`root`" `div` of the user interface.
-     * 
-     * @memberof module:UserInterface
-     * 
-     * @returns {undefined}
-     */
-    const setUp = () => {
-        root.appendChild(_getGameboards());
     }
 
     /**
@@ -46,12 +48,12 @@ const UserInterface = (() => {
      * 
      * @returns {undefined}
      */
-    const update = () => {
+    const update = (isComputerTurn) => {
         root.innerHTML = '';
-        setUp();
+        root.appendChild(_getGameboards(isComputerTurn));
     }
 
-    return { setUp, update }
+    return { update }
 })();
 
 

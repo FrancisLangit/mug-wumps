@@ -27,9 +27,9 @@ const Game = (() => {
      */
     const runTurn = (playerAttackX, playerAttackY) => {
         computerGameboard.receiveAttack(playerAttackX, playerAttackY);
-        UserInterface.update();
+        UserInterface.update(true);
         computer.makeRandomAttack();
-        setTimeout(UserInterface.update, 1000);
+        setTimeout(UserInterface.update, 500);
     }
 
     return { 

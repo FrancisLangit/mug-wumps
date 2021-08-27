@@ -2,16 +2,19 @@ import { GameboardCellDisplay } from "./GameboardCellDisplay";
 
 
 /**
- * Returns a `div` node that renders a `Gameboard` object.
+ * Returns an object representing a rendered Gameboard.
  * 
  * @namespace
  * 
  * @param {Object} gameboard `Gameboard` object to render.
+ * @param {Object} isInactive `true` if to be rendered as unclickable.
  * @param {Object} isComputer `true` if `Gameboard` object is computer's.
  * 
- * @returns {HTMLElement} `div` rendering a gameboard.
+ * @returns {Object} Object representing a rendered gameboard.
  */
-const GameboardDisplay = (gameboard, isComputer) => {
+const GameboardDisplay = (gameboard, isInactive, isComputer) => {
+    let element = document.createElement('div');
+
     /**
      * Returns a styled `div` representing a gameboard cell.
      * 
@@ -25,23 +28,34 @@ const GameboardDisplay = (gameboard, isComputer) => {
     }
 
     /**
-     * Returns a styled interface representation of the gameboard grid.
+     * Fills up the gameboard's grid `div` with its cells.
      * 
-     * @returns {HTMLElement}
+     * @returns {undefined}
      */
-    const _getGrid = () => {
-        let grid = document.createElement('div');
-        grid.classList.add('gameboard');
-        grid.classList.add('gameboard-inactive');
+    const _fill = () => {
         for (let x = 0; x < 10; x++) {
             for (let y = 0; y < 10; y++) {
-                grid.append(_getCell(x, y));
+                element.append(_getCell(x, y));
             }
         };
-        return grid;
     }
 
-    return _getGrid();
+    /**
+     * Adds respective classes to the gameboard's display.
+     * 
+     * @returns {undefined}
+     */
+    const _style = () => {
+        element.classList.add('gameboard');
+        if (isInactive) {
+            element.classList.add('gameboard-inactive');
+        }
+    }
+
+    _fill();
+    _style();
+
+    return element;
 }
 
 
