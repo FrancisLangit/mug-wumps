@@ -6,6 +6,12 @@
     margin: 10px;
 }
 
+.gameboard-inactive div {
+    border: 0.5px solid lightgrey;
+    
+    pointer-events: none;
+}
+
 .cell {
     width: 30px; 
     height: 30px;

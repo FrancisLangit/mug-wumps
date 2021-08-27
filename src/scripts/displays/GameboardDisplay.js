@@ -32,6 +32,7 @@ const GameboardDisplay = (gameboard, isComputer) => {
     const _getGrid = () => {
         let grid = document.createElement('div');
         grid.classList.add('gameboard');
+        grid.classList.add('gameboard-inactive');
         for (let x = 0; x < 10; x++) {
             for (let y = 0; y < 10; y++) {
                 grid.append(_getCell(x, y));
