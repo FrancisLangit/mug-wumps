@@ -110,6 +110,18 @@ const Gameboard = (isPrefilled=false) => {
         return missesAsString.indexOf(position) !== -1;
     }
 
+    /**
+     * Resets all of the objects's ships and empties its `misses` array.
+     * 
+     * @returns {undefined}
+     */
+    const reset = () => {
+        for (let i = 0; i < ships.length; i++) {
+            ships[i].reset()
+        }
+        misses = [];
+    }
+
     let ships = _getShips();
     let misses = [];
 
@@ -122,6 +134,7 @@ const Gameboard = (isPrefilled=false) => {
         isAllShipsSunk,
         isPositionShip,
         isPositionMiss,
+        reset,
     }
 }
 
