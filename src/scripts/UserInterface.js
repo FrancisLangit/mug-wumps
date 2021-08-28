@@ -3,40 +3,31 @@ import { GameboardDisplay } from './displays/GameboardDisplay';
 
 
 /**
- * Immediately invoked function expression (IIFE) module holding methods for 
- * the updating of the user interface.
+ * Module holding methods that update the user interface.
  * 
  * @module UserInterface
  */
 const UserInterface = (() => {
     const root = document.getElementById('root');
-
+    
     /**
-     * Private function returning `div` holding display of both user and
-     * computer gameboard.
+     * Returns `div` holding display of both user and computer gameboard.
      * 
      * @memberof module:UserInterface
+     * 
+     * @param {boolean} isComputerTurn `true` if turn of game computer's.
      * 
      * @returns {HTMLElement} `div` holding game's gameboards.
      */
-    const _getGameboards = () => {
+    const _getGameboards = (isComputerTurn) => {
         const gameboardsContainer = document.createElement('div');
         gameboardsContainer.append(
-            GameboardDisplay(Game.playerGameboard),
-            GameboardDisplay(Game.computerGameboard, true),
+            GameboardDisplay(
+                Game.playerGameboard, isComputerTurn ? false : true, false),
+            GameboardDisplay(
+                Game.computerGameboard, isComputerTurn ? true : false, true),
         );
         return gameboardsContainer;
-    }
-
-    /**
-     * Fills up the "`root`" `div` of the user interface.
-     * 
-     * @memberof module:UserInterface
-     * 
-     * @returns {undefined}
-     */
-    const setUp = () => {
-        root.appendChild(_getGameboards());
     }
 
     /**
@@ -46,12 +37,23 @@ const UserInterface = (() => {
      * 
      * @returns {undefined}
      */
-    const update = () => {
+    const update = (isComputerTurn) => {
         root.innerHTML = '';
-        setUp();
+        root.appendChild(_getGameboards(isComputerTurn));
     }
 
-    return { setUp, update }
+    /**
+     * Displays on the user interface the respective winner of the game.
+     * 
+     * @param {boolean} isComputerWon `true` if to display that computer won.
+     * 
+     * @returns {undefined}
+     */
+    const displayWinner = (isComputerWon) => {
+        isComputerWon ? alert('Computer wins.') : alert('You win!');
+    }
+
+    return { update, displayWinner }
 })();
 
 

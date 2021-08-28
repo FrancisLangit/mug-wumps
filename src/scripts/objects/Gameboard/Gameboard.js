@@ -22,10 +22,10 @@ const Gameboard = (isPrefilled=false) => {
         let ships = [];
         if (isPrefilled) {
             ships.push(Ship(0, 0, 5));
-            ships.push(Ship(0, 1, 4));
-            ships.push(Ship(0, 2, 3));
-            ships.push(Ship(0, 3, 3));
-            ships.push(Ship(0, 4, 2));
+            ships.push(Ship(5, 2, 4));
+            ships.push(Ship(2, 4, 3, true));
+            ships.push(Ship(5, 6, 3));
+            ships.push(Ship(0, 8, 2, true));
         }
         return ships;
     }
@@ -72,7 +72,7 @@ const Gameboard = (isPrefilled=false) => {
     const isAllShipsSunk = () => {
         return ships.every((ship) => {
             return ship.isSunk() === true;
-        }); 
+        });
     }
 
     /**
@@ -110,6 +110,18 @@ const Gameboard = (isPrefilled=false) => {
         return missesAsString.indexOf(position) !== -1;
     }
 
+    /**
+     * Resets all of the objects's ships and empties its `misses` array.
+     * 
+     * @returns {undefined}
+     */
+    const reset = () => {
+        for (let i = 0; i < ships.length; i++) {
+            ships[i].reset()
+        }
+        misses = [];
+    }
+
     let ships = _getShips();
     let misses = [];
 
@@ -122,6 +134,7 @@ const Gameboard = (isPrefilled=false) => {
         isAllShipsSunk,
         isPositionShip,
         isPositionMiss,
+        reset,
     }
 }
 

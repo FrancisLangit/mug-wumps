@@ -6,6 +6,12 @@
     margin: 10px;
 }
 
+.gameboard-inactive div {
+    border: 0.5px solid lightgrey;
+    
+    pointer-events: none;
+}
+
 .cell {
     width: 30px; 
     height: 30px;
@@ -19,10 +25,6 @@
     cursor: pointer;
 }
 
-.cell-ship {
-    background-color: rgb(205, 205, 205);
-}
-
 .cell-hit {
     background-color: rgb(200, 105, 105);
     
@@ -33,4 +35,8 @@
     background-color: rgb(135, 165, 235);
     
     pointer-events: none;
+}
+
+.cell-ship {
+    background-color: rgb(205, 205, 205);
 }

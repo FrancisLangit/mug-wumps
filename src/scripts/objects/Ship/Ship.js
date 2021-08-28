@@ -51,7 +51,29 @@ const Ship = (x, y, length, isVertical=false) => {
         return positions;
     }
 
-    return { x, y, length, isVertical, hits, hit, isSunk, getPositions };
+    /**
+     * Sets all booleans in object's `hits` array back to `false`.
+     * 
+     * @returns {undefined}
+     */
+    const reset = () => {
+        for (let i = 0; i < hits.length; i++) {
+            hits[i] = false;
+        }
+    }
+
+    return { 
+        x,
+        y,
+        length,
+        isVertical,
+        hits,
+        
+        hit,
+        isSunk,
+        getPositions,
+        reset,
+    };
 }
 
 
