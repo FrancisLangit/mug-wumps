@@ -33,8 +33,8 @@ const GameboardDisplay = (gameboard, isInactive, isComputer) => {
      * @returns {undefined}
      */
     const _fill = () => {
-        for (let x = 0; x < 10; x++) {
-            for (let y = 0; y < 10; y++) {
+        for (let y = 0; y < 10; y++) {
+            for (let x = 0; x < 10; x++) {
                 element.append(_getCell(x, y));
             }
         };
