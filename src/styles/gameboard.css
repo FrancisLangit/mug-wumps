@@ -11,32 +11,3 @@
     
     pointer-events: none;
 }
-
-.cell {
-    width: 30px; 
-    height: 30px;
-
-    border: 0.5px solid black;
-}
-
-.cell-computer:hover {
-    background-color: rgb(235, 235, 235);
-
-    cursor: pointer;
-}
-
-.cell-hit {
-    background-color: rgb(200, 105, 105);
-    
-    pointer-events: none;
-}
-
-.cell-miss {
-    background-color: rgb(135, 165, 235);
-    
-    pointer-events: none;
-}
-
-.cell-ship {
-    background-color: rgb(205, 205, 205);
-}
