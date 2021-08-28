@@ -15,13 +15,6 @@ const Game = (() => {
     let player = Player(computerGameboard);
     let computer = Computer(playerGameboard);
 
-    const _reset = () => {
-        playerGameboard = Gameboard(true);
-        computerGameboard = Gameboard(true);
-        player = Player(computerGameboard);
-        computer = Computer(playerGameboard);
-    }
-
     /**
      * Checks if someone won the game and renders such effect accordingly.
      * 
@@ -32,8 +25,6 @@ const Game = (() => {
         const isComputerWon = playerGameboard.isAllShipsSunk();
         if (isPlayerWon || isComputerWon) {
             UserInterface.displayWinner(isComputerWon);
-            _reset();
-            UserInterface.update();
         }
     }
 

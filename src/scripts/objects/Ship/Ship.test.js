@@ -8,6 +8,7 @@ test('Properties of object returned by Ship(5, 6, 3)', () => {
     expect(ship).toHaveProperty('length', 3);
     expect(ship).toHaveProperty('isVertical', false);
     expect(ship).toHaveProperty('hits', [false, false, false]);
+    expect(ship).toHaveProperty('reset');
 });
 
 test('Properties of object returned by Ship(1, 1, 5, true)', () => {
@@ -54,4 +55,11 @@ test('getPositions() method of Ship(3, 3, 4) return object', () => {
 test('getPositions() method of Ship(1, 2, 3, true) return object', () => {
     const ship = Ship(1, 2, 3, true);
     expect(ship.getPositions()).toEqual([[1, 2], [1, 3], [1, 4]]);
+});
+
+test('reset() method of Ship(0, 0, 1) return object', () => {
+    const ship = Ship(0, 0, 1);
+    ship.hit(0);
+    ship.reset();
+    expect(ship.isSunk()).toEqual(false);
 });
