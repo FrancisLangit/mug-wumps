@@ -2,7 +2,7 @@ import { Ship } from '../Ship/Ship';
 
 
 /**
- * Factory function returning an object representing a gameboard.
+ * Returns an object representing a gameboard.
  * 
  * @namespace
  * 
@@ -22,10 +22,6 @@ const Gameboard = (isPrefilled=false) => {
         let ships = [];
         if (isPrefilled) {
             ships.push(Ship(0, 0, 5));
-            ships.push(Ship(5, 2, 4));
-            ships.push(Ship(2, 4, 3, true));
-            ships.push(Ship(5, 6, 3));
-            ships.push(Ship(0, 8, 2, true));
         }
         return ships;
     }

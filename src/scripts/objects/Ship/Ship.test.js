@@ -3,11 +3,16 @@ import { Ship } from "./Ship";
 
 test('Properties of object returned by Ship(5, 6, 3)', () => {
     const ship = Ship(5, 6, 3);
+    
     expect(ship).toHaveProperty('x', 5);
     expect(ship).toHaveProperty('y', 6);
     expect(ship).toHaveProperty('length', 3);
     expect(ship).toHaveProperty('isVertical', false);
     expect(ship).toHaveProperty('hits', [false, false, false]);
+
+    expect(ship).toHaveProperty('hit');
+    expect(ship).toHaveProperty('isSunk');
+    expect(ship).toHaveProperty('getPositions');
     expect(ship).toHaveProperty('reset');
 });
 

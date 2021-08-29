@@ -1,5 +1,5 @@
 /**
- * Factory function returning object representing a ship on the gameboard.
+ * Returns an object representing a ship on the gameboard.
  * 
  * @namespace
  * 
@@ -77,4 +77,9 @@ const Ship = (x, y, length, isVertical=false) => {
 }
 
 
-export { Ship }
+const RandomShip = () => {
+    return Ship(0, 0, 1, false);
+}
+
+
+export { Ship, RandomShip }
