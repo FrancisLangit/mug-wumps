@@ -77,8 +77,8 @@ const Ship = (x, y, length, isVertical=false) => {
 }
 
 
-const RandomShip = () => {
-    return Ship(0, 0, 1, false);
+const RandomShip = (length) => {
+    return Ship(5, 9, length, false);
 }
 
 

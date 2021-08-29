@@ -23,6 +23,11 @@ test('Properties of object returned by Ship(1, 1, 5, true)', () => {
     expect(ship).toHaveProperty('length', 5);
     expect(ship).toHaveProperty('isVertical', true);
     expect(ship).toHaveProperty('hits', [false, false, false, false, false]);
+
+    expect(ship).toHaveProperty('hit');
+    expect(ship).toHaveProperty('isSunk');
+    expect(ship).toHaveProperty('getPositions');
+    expect(ship).toHaveProperty('reset');
 });
 
 test('hit() method of object returned by Ship(2, 3, 2)', () => {

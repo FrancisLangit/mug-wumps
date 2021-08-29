@@ -21,7 +21,7 @@ const Gameboard = (isPrefilled=false) => {
     const _getShips = () => {
         let ships = [];
         if (isPrefilled) {
-            ships.push(Ship(0, 0, 5));
+            ships.push(Ship(9, 5, 5, true));
         }
         return ships;
     }
