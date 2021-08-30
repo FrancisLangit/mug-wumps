@@ -1,4 +1,4 @@
-import { Ship } from '../Ship/Ship';
+import { RandomShip } from '../Ship/Ship';
 
 
 /**
@@ -21,7 +21,11 @@ const Gameboard = (isPrefilled=false) => {
     const _getShips = () => {
         let ships = [];
         if (isPrefilled) {
-            ships.push(Ship(9, 5, 5, true));
+            ships.push(RandomShip(5));
+            ships.push(RandomShip(4));
+            ships.push(RandomShip(3));
+            ships.push(RandomShip(3));
+            ships.push(RandomShip(2));
         }
         return ships;
     }
