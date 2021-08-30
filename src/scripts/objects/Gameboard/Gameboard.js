@@ -1,4 +1,4 @@
-import { Ship, RandomShip } from '../Ship/Ship';
+import { RandomShip } from '../Ship/Ship';
 
 
 /**
