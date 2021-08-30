@@ -1,0 +1,7 @@
+.randomize-button {
+    position: absolute;
+    border: 1px solid black;
+
+    cursor: pointer;
+    user-select: none;
+}
