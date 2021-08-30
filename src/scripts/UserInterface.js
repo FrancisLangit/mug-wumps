@@ -1,6 +1,7 @@
 import { Game } from './Game';
 import { GameboardDisplay } from './displays/GameboardDisplay';
 import { RandomizeButton } from './displays/RandomizeButton';
+import { StartButton } from './displays/StartButton';
 
 
 /**
@@ -66,6 +67,7 @@ const UserInterface = (() => {
      */
     const update = (isComputerTurn) => {
         root.innerHTML = '';
+        root.appendChild(StartButton());
         root.appendChild(_getGameboards(isComputerTurn));
         root.appendChild(RandomizeButton(Game.playerGameboard));
     }

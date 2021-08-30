@@ -1,4 +1,5 @@
 import { Game } from "../Game";
+import { UserInterface } from "../UserInterface";
 
 
 /**
@@ -16,6 +17,7 @@ const StartButton = () => {
     
     startButton.addEventListener('click', () => {
         Game.isStart = true;
+        UserInterface.update();
     });
 
     return startButton;
