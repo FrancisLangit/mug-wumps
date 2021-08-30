@@ -1,5 +1,5 @@
 /**
- * Factory function returning object representing a ship on the gameboard.
+ * Returns an object representing a ship on the gameboard.
  * 
  * @namespace
  * 
@@ -77,4 +77,38 @@ const Ship = (x, y, length, isVertical=false) => {
 }
 
 
-export { Ship }
+/**
+ * Returns a `Ship` object with randomly generated position and alignment. 
+ * 
+ * @param {int} length Length of the Ship.
+ *  
+ * @returns {Object} `Ship` object.
+ */
+const RandomShip = (length) => {
+    let isVertical = Math.random() < 0.5;
+
+    /**
+     * Returns a randomly generated coordinate for the Ship. 
+     * 
+     * @param {boolean} isY `true` if y-coordinate to be generated. 
+     * 
+     * @returns {int} Number representing a coordinate.
+     */
+    const _getCoordinate = (isY) => {
+        let limit = 10;
+        if (isVertical && isY || !isVertical && !isY) {
+            limit -= length;
+        }
+        return Math.floor(Math.random() * limit);
+    }
+
+    return Ship(
+        _getCoordinate(),
+        _getCoordinate(true), 
+        length, 
+        isVertical,
+    );
+}
+
+
+export { Ship, RandomShip }

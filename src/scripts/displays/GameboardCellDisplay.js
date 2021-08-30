@@ -24,7 +24,10 @@ const GameboardCellDisplay = (x, y, gameboard, isComputer) => {
 
         if (isComputer) {
             classes.push('cell-computer');
+        } else {
+            classes.push('cell-player');
         }
+
         if (gameboard.isPositionMiss(x, y)) {
             classes.push('cell-miss');
         } else if (gameboard.isPositionShip(x, y, true)) {

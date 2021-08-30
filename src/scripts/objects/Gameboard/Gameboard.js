@@ -1,8 +1,8 @@
-import { Ship } from '../Ship/Ship';
+import { Ship, RandomShip } from '../Ship/Ship';
 
 
 /**
- * Factory function returning an object representing a gameboard.
+ * Returns an object representing a gameboard.
  * 
  * @namespace
  * 
@@ -21,11 +21,11 @@ const Gameboard = (isPrefilled=false) => {
     const _getShips = () => {
         let ships = [];
         if (isPrefilled) {
-            ships.push(Ship(0, 0, 5));
-            ships.push(Ship(5, 2, 4));
-            ships.push(Ship(2, 4, 3, true));
-            ships.push(Ship(5, 6, 3));
-            ships.push(Ship(0, 8, 2, true));
+            ships.push(RandomShip(5));
+            ships.push(RandomShip(4));
+            ships.push(RandomShip(3));
+            ships.push(RandomShip(3));
+            ships.push(RandomShip(2));
         }
         return ships;
     }
@@ -111,14 +111,12 @@ const Gameboard = (isPrefilled=false) => {
     }
 
     /**
-     * Resets all of the objects's ships and empties its `misses` array.
+     * Re-randomizes `ships` array and empties `misses` array.
      * 
      * @returns {undefined}
      */
     const reset = () => {
-        for (let i = 0; i < ships.length; i++) {
-            ships[i].reset()
-        }
+        ships = _getShips()
         misses = [];
     }
 
