@@ -1,7 +1,7 @@
-import { Computer } from './Computer/Computer';
-import { Gameboard } from './Gameboard/Gameboard';
-import { Player } from './Player/Player';
-import { UserInterface } from '../UserInterface';
+import { Computer } from './objects/Computer/Computer';
+import { Gameboard } from './objects/Gameboard/Gameboard';
+import { Player } from './objects/Player/Player';
+import { UserInterface } from './UserInterface';
 
 
 /**
@@ -12,8 +12,11 @@ import { UserInterface } from '../UserInterface';
 const Game = (() => {
     let playerGameboard = Gameboard(true);
     let computerGameboard = Gameboard(true);
+
     let player = Player(computerGameboard);
     let computer = Computer(playerGameboard);
+
+    let isStart = false;
 
     /**
      * Resets the game.
@@ -61,8 +64,9 @@ const Game = (() => {
         computerGameboard,
         player, 
         computer,
+        isStart,
 
-        runTurn, 
+        runTurn,
     }
 })();
 

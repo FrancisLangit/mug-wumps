@@ -1,4 +1,4 @@
-import { Game } from './objects/Game';
+import { Game } from './Game';
 import { GameboardDisplay } from './displays/GameboardDisplay';
 import { RandomizeButton } from './displays/RandomizeButton';
 
@@ -12,11 +12,31 @@ const UserInterface = (() => {
     const root = document.getElementById('root');
     
     /**
+     * Returns `isInactive` argument of a `GameboardDisplay` object.
+     * 
+     * @memberof module:UserInterface
+     * 
+     * @param {*} isComputerTurn `true` if turn of computer.
+     * @param {*} isComputer `true` if state to be returned is computer's.
+     * 
+     * @returns {boolean} State of a `GameboardDisplay`.
+     */
+    const _getGameboardState = (isComputerTurn, isComputer) => {
+        if (Game.isStart) {
+            if (isComputer) {
+                return isComputerTurn ? true : false;
+            }
+            return isComputerTurn ? false : true;
+        }
+        return true;
+    }
+
+    /**
      * Returns `div` holding display of both user and computer gameboard.
      * 
      * @memberof module:UserInterface
      * 
-     * @param {boolean} isComputerTurn `true` if turn of game computer's.
+     * @param {boolean} isComputerTurn `true` if turn of computer.
      * 
      * @returns {HTMLElement} `div` holding game's gameboards.
      */
@@ -24,9 +44,15 @@ const UserInterface = (() => {
         const gameboardsContainer = document.createElement('div');
         gameboardsContainer.append(
             GameboardDisplay(
-                Game.playerGameboard, isComputerTurn ? false : true, false),
+                Game.playerGameboard, 
+                _getGameboardState(isComputerTurn, false), 
+                false,
+            ),
             GameboardDisplay(
-                Game.computerGameboard, isComputerTurn ? true : false, true),
+                Game.computerGameboard,
+                _getGameboardState(isComputerTurn, true),
+                true,
+            ),
         );
         return gameboardsContainer;
     }
