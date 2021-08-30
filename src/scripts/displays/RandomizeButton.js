@@ -1,6 +1,15 @@
 import { UserInterface } from "../UserInterface";
 
 
+/**
+ * Returns button that re-randomizes `Gameboard` object passed as argument.
+ * 
+ * @namespace
+ * 
+ * @param {Object} gameboard Gameboard that button will be randomizing.
+ * 
+ * @returns {HTMLElement} Button re-randomizing `Gameboard`.
+ */
 const RandomizeButton = (gameboard) => {
     const randomizeButton = document.createElement('div');
     
@@ -11,6 +20,7 @@ const RandomizeButton = (gameboard) => {
         gameboard.reset();
         UserInterface.update();
     });
+
     return randomizeButton;
 }
 

@@ -80,6 +80,8 @@ const Ship = (x, y, length, isVertical=false) => {
 /**
  * Returns a `Ship` object with randomly generated position and alignment. 
  * 
+ * @namespace
+ * 
  * @param {int} length Length of the Ship.
  *  
  * @returns {Object} `Ship` object.
