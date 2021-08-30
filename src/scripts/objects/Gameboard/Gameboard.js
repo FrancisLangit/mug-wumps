@@ -1,4 +1,4 @@
-import { RandomShip } from '../Ship/Ship';
+import { Ship, RandomShip } from '../Ship/Ship';
 
 
 /**
@@ -111,14 +111,12 @@ const Gameboard = (isPrefilled=false) => {
     }
 
     /**
-     * Resets all of the objects's ships and empties its `misses` array.
+     * Re-randomizes `ships` array and empties `misses` array.
      * 
      * @returns {undefined}
      */
     const reset = () => {
-        for (let i = 0; i < ships.length; i++) {
-            ships[i].reset()
-        }
+        ships = _getShips()
         misses = [];
     }
 
