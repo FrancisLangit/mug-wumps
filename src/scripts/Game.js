@@ -21,6 +21,8 @@ const Game = (() => {
     /**
      * Resets the game.
      * 
+     * @memberof module:Game
+     * 
      * @returns {undefined} 
      */
     const _reset = () => {
@@ -30,6 +32,8 @@ const Game = (() => {
 
     /**
      * Checks if someone won the game and renders such effect accordingly.
+     * 
+     * @memberof module:Game
      * 
      * @returns {undefined}
      */
