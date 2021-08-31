@@ -4,10 +4,10 @@
     grid-gap: 3px;
 
     margin: 10px;
-}
 
-.gameboard-inactive div {
-    border: 0.5px solid lightgrey;
+    &-inactive div {
+        border: 0.5px solid lightgrey;
     
-    pointer-events: none;
+        pointer-events: none;
+    }
 }
