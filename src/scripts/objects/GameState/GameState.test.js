@@ -2,7 +2,7 @@ import { GameState } from './Gamestate';
 
   
 afterAll(() => {
-    return GameState.reset();
+    return GameState.stop();
 });
 
 test('Default return value of GameState.isRunning()', () => {
@@ -14,8 +14,8 @@ test(`GameState.start() affects return of GameState.isRunning()`, () => {
     expect(GameState.isRunning()).toBe(true);
 });
 
-test('GameState.reset() brings module back to default values', () => {
+test('GameState.stop() brings module back to default values', () => {
     GameState.start();
-    GameState.reset();
+    GameState.stop();
     expect(GameState.isRunning()).toBe(false);
 });

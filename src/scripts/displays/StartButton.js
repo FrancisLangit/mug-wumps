@@ -1,4 +1,4 @@
-import { Game } from "../Game";
+import { GameState } from "../objects/GameState/GameState";
 import { UserInterface } from "../UserInterface";
 
 
@@ -16,7 +16,7 @@ const StartButton = () => {
     startButton.classList.add('start-button');
     
     startButton.addEventListener('click', () => {
-        Game.isStart = true;
+        GameState.start();
         UserInterface.update();
     });
 

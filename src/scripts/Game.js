@@ -1,5 +1,6 @@
 import { Computer } from './objects/Computer/Computer';
 import { Gameboard } from './objects/Gameboard/Gameboard';
+import { GameState } from './objects/GameState/GameState';
 import { Player } from './objects/Player/Player';
 import { UserInterface } from './UserInterface';
 
@@ -16,8 +17,6 @@ const Game = (() => {
     let player = Player(computerGameboard);
     let computer = Computer(playerGameboard);
 
-    let isStart = false;
-
     /**
      * Resets the game.
      * 
@@ -28,7 +27,7 @@ const Game = (() => {
     const _reset = () => {
         playerGameboard.reset();
         computerGameboard.reset();
-        Game.isStart = false;
+        GameState.stop();
     }
 
     /**
@@ -69,7 +68,6 @@ const Game = (() => {
         computerGameboard,
         player, 
         computer,
-        isStart,
 
         runTurn,
     }

@@ -30,15 +30,19 @@ const GameState = (() => {
 
     /**
      * Sets `running` to `false`.
+     * 
+     * @memberof module:GameState
+     * 
+     * @returns {undefined}
      */
-    const reset = () => {
+    const stop = () => {
         running = false;
     }
 
     return { 
         isRunning,
         start,
-        reset,   
+        stop,   
     }
 })();
 

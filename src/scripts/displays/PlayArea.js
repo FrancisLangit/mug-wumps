@@ -1,5 +1,6 @@
 import { Game } from '../Game';
 import { GameboardDisplay } from './GameboardDisplay';
+import { GameState } from '../objects/GameState/GameState';
 
 
 /**
@@ -13,7 +14,7 @@ import { GameboardDisplay } from './GameboardDisplay';
  */
 const PlayArea = (isComputerTurn) => {
     // Destructured Game object for shorter lines.
-    let { isStart, playerGameboard, computerGameboard } = Game;
+    let { playerGameboard, computerGameboard } = Game;
 
     /**
      * Returns `isInactive` argument to a `GameboardDisplay` call.
@@ -23,7 +24,7 @@ const PlayArea = (isComputerTurn) => {
      * @returns {boolean}
      */
     const _getIsInactive = (isComputer) => {
-        if (isStart) {
+        if (GameState.isRunning()) {
             if (isComputer) {
                 return isComputerTurn ? true : false;
             }
