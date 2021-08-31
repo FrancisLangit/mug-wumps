@@ -28,6 +28,7 @@ const Game = (() => {
     const _reset = () => {
         playerGameboard.reset();
         computerGameboard.reset();
+        Game.isStart = false;
     }
 
     /**
@@ -38,8 +39,8 @@ const Game = (() => {
      * @returns {undefined}
      */
     const _checkWinner = () => {
-        const isPlayerWon = computerGameboard.isAllShipsSunk();
-        const isComputerWon = playerGameboard.isAllShipsSunk();
+        const isPlayerWon = computerGameboard.isShipsSunk();
+        const isComputerWon = playerGameboard.isShipsSunk();
         if (isPlayerWon || isComputerWon) {
             UserInterface.displayWinner(isComputerWon);
             _reset();

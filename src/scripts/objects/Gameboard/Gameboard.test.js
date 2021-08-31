@@ -8,7 +8,7 @@ test('Properties of object returned by Gameboard()', () => {
     expect(gameboard).toHaveProperty('misses', []);
     expect(gameboard).toHaveProperty('addShip');
     expect(gameboard).toHaveProperty('receiveAttack');
-    expect(gameboard).toHaveProperty('isAllShipsSunk');
+    expect(gameboard).toHaveProperty('isShipsSunk');
     expect(gameboard).toHaveProperty('isPositionShip');
     expect(gameboard).toHaveProperty('isPositionMiss');
     expect(gameboard).toHaveProperty('reset');
@@ -41,15 +41,15 @@ test('receiveAttack() of Gameboard() recording miss', () => {
     expect(gameboard.misses[0]).toEqual([5, 6]);
 })
 
-test('isAllShipsSunk() method of object returned by Gameboard()', () => {
+test('isShipsSunk() method of object returned by Gameboard()', () => {
     // Factory function returning a mock of a Ship object.
     const _getMockShip = () => { return { 'isSunk' : () => true } }
     // Initialize instance of Gameboard and add mock ships to it.
     let gameboard = Gameboard();
     gameboard.addShip(_getMockShip());
     gameboard.addShip(_getMockShip());
-    // Test isAllShipsSunk() method of gameboard instance.
-    expect(gameboard.isAllShipsSunk()).toEqual(true);
+    // Test isShipsSunk() method of gameboard instance.
+    expect(gameboard.isShipsSunk()).toEqual(true);
 });
 
 test('isPositionShip() method of Gameboard object', () => {
