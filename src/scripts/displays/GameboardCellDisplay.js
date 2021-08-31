@@ -1,4 +1,4 @@
-import { Game } from "../objects/Game";
+import { Game } from "../Game";
 
 
 /**

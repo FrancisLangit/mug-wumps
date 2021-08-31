@@ -1,4 +1,4 @@
-import { Ship, RandomShip } from '../Ship/Ship';
+import { RandomShip } from '../Ship/Ship';
 
 
 /**
@@ -69,7 +69,7 @@ const Gameboard = (isPrefilled=false) => {
      * 
      * @returns {boolean} Boolean dependent on status of ships.
      */
-    const isAllShipsSunk = () => {
+    const isShipsSunk = () => {
         return ships.every((ship) => {
             return ship.isSunk() === true;
         });
@@ -129,7 +129,7 @@ const Gameboard = (isPrefilled=false) => {
 
         addShip,
         receiveAttack,
-        isAllShipsSunk,
+        isShipsSunk,
         isPositionShip,
         isPositionMiss,
         reset,

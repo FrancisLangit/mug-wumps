@@ -1,7 +1,8 @@
-import { Computer } from './Computer/Computer';
-import { Gameboard } from './Gameboard/Gameboard';
-import { Player } from './Player/Player';
-import { UserInterface } from '../UserInterface';
+import { Computer } from './objects/Computer/Computer';
+import { Gameboard } from './objects/Gameboard/Gameboard';
+import { GameState } from './objects/GameState/GameState';
+import { Player } from './objects/Player/Player';
+import { UserInterface } from './UserInterface';
 
 
 /**
@@ -12,27 +13,33 @@ import { UserInterface } from '../UserInterface';
 const Game = (() => {
     let playerGameboard = Gameboard(true);
     let computerGameboard = Gameboard(true);
+
     let player = Player(computerGameboard);
     let computer = Computer(playerGameboard);
 
     /**
      * Resets the game.
      * 
+     * @memberof module:Game
+     * 
      * @returns {undefined} 
      */
     const _reset = () => {
         playerGameboard.reset();
         computerGameboard.reset();
+        GameState.stop();
     }
 
     /**
      * Checks if someone won the game and renders such effect accordingly.
      * 
+     * @memberof module:Game
+     * 
      * @returns {undefined}
      */
     const _checkWinner = () => {
-        const isPlayerWon = computerGameboard.isAllShipsSunk();
-        const isComputerWon = playerGameboard.isAllShipsSunk();
+        const isPlayerWon = computerGameboard.isShipsSunk();
+        const isComputerWon = playerGameboard.isShipsSunk();
         if (isPlayerWon || isComputerWon) {
             UserInterface.displayWinner(isComputerWon);
             _reset();
@@ -62,7 +69,7 @@ const Game = (() => {
         player, 
         computer,
 
-        runTurn, 
+        runTurn,
     }
 })();
 

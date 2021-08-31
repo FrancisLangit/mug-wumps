@@ -1,0 +1,6 @@
+.start-button {
+    border: 1px solid grey;
+
+    cursor: pointer;
+    user-select: none;
+}
