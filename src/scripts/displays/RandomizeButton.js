@@ -1,4 +1,4 @@
-import { Button } from "./Button.js";
+import { Button } from "./templates/Button.js";
 import { UserInterface } from "../UserInterface";
 
 

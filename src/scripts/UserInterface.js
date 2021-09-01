@@ -34,6 +34,7 @@ const UserInterface = (() => {
             PlayArea(isComputerTurn),
             randomizeButton.get(),
             restartButton.get(),
+            restartModal.get(),
         );
     }
 
@@ -50,6 +51,7 @@ const UserInterface = (() => {
         startButton,
         randomizeButton, 
         restartButton,
+        restartModal,
     
         update, 
         displayWinner 

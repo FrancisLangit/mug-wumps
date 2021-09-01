@@ -1,23 +1,34 @@
-import { Button } from "./Button";
+import { Button } from "./templates/Button";
+import { DisplayElement } from "./templates/DisplayElement";
+import { Game } from "../Game";
+import { UserInterface } from "../UserInterface";
 
 
 const RestartModal = () => {
-    const modal = document.createElement('div');
-    const text = `Restart? You will lose your data for this game.`
-    modal.textContent = text;
+    const { get, hide, show } = DisplayElement();
+    hide(); // Modal initially hidden. 
 
-    const yesButton = Button('Yes', [], () => console.log('Yes.'));
-    const cancelButton = Button('Cancel', [], () => console.log('Cancel.'));
+    // Create container holding text of modal.
+    const textContainer = document.createElement('div');
+    textContainer.textContent = `Restart? You will lose this game.`;
 
-    const container = document.createElement('div');
-    container.append(
-        modal,
-        yesButton.get(),
-        cancelButton.get(),
-    );
-    container.style.border = '1px solid black';
+    // Create modal's buttons.
+    const yesButton = Button('Yes', [], () => {
+        Game.reset();
+        UserInterface.restartButton.hide();
+        hide();
+    });
+    const cancelButton = Button('Cancel', [], hide);
 
-    return container;
+    // Append HTMLElements to modal.
+    const modal = get();
+    modal.append(textContainer, yesButton.get(), cancelButton.get());
+
+    return {
+        get,
+        hide,
+        show,
+    }
 }
 
 

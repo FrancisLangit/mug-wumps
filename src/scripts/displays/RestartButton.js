@@ -1,6 +1,5 @@
-import { Button } from "./Button.js";
-import { Game } from "../Game.js";
-import { RestartModal } from "./RestartModal.js";
+import { Button } from "./templates/Button.js";
+import { UserInterface } from "../UserInterface.js";
 
 
 /**
@@ -14,8 +13,7 @@ const RestartButton = () => {
      * Resests the game and hides the Restart button.
      */
     const restartGame = () => {
-        Game.reset()
-        restartButton.hide()
+        UserInterface.restartModal.show();
     }
     
     const restartButton = Button('Restart', ['restart-button'], restartGame);
