@@ -25,9 +25,11 @@ const Game = (() => {
      * @returns {undefined} 
      */
     const _reset = () => {
+        GameState.stop();
         playerGameboard.reset();
         computerGameboard.reset();
-        GameState.stop();
+        UserInterface.startButton.show();
+        UserInterface.randomizeButton.show();
     }
 
     /**

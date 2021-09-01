@@ -4,30 +4,24 @@ import { UserInterface } from "../UserInterface";
 
 
 /**
- * Returns a button that starts the game.
+ * Returns object representing a button that starts the game.
  * 
  * @namespace
  * 
- * @returns {HTMLElement} Button that starts the game.
+ * @returns {Object}
  */
 const StartButton = () => {
     /**
-     * Makes application start and game and hide itself.
-     * 
-     * @returns {undefined}
+     * Hides Start and Randomize buttons and starts the game.
      */
     const _startGame = () => {
-        startButton.hide();
         GameState.start();
+        startButton.hide();
+        UserInterface.randomizeButton.hide();
         UserInterface.update();
     }
     
-    const startButton = Button(
-        'Start',
-        ['start-button'],
-        _startGame
-    )
-
+    const startButton = Button('Start', ['start-button'], _startGame);
     return startButton;
 }
 

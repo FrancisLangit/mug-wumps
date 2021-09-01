@@ -9,20 +9,18 @@ import { UserInterface } from "../UserInterface";
  * 
  * @param {Object} gameboard Gameboard that button will be randomizing.
  * 
- * @returns {Object} Button re-randomizing `Gameboard`.
+ * @returns {Object}
  */
 const RandomizeButton = (gameboard) => {
-
+    /**
+     * Re-randomizes ships on `Gameboard` object passed as argument.
+     */
     const _randomizeGameboard = () => {
         gameboard.reset();
         UserInterface.update();
     }
-
-    return Button(
-        'Randomize', 
-        ['randomize-button'], 
-        _randomizeGameboard
-    );
+    
+    return Button('Randomize', ['randomize-button'], (_randomizeGameboard));
 }
 
 

@@ -1,11 +1,13 @@
 /**
  * Returns an object representing a button.
  * 
+ * @namespace
+ * 
  * @param {string} text Text to be displayed in button.
  * @param {Array} classes CSS classes of the button.
  * @param {Function} callback Callback function called when button clicked.
  * 
- * @returns {Object} `Button` object.
+ * @returns {Object}
  */
 const Button = (text, classes, callback) => {
     const button = document.createElement('div');

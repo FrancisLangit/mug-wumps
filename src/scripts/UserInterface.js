@@ -10,8 +10,9 @@ import { StartButton } from './displays/StartButton';
  * @module UserInterface
  */
 const UserInterface = (() => {
-    // Get root div of application's index.html page.
     const root = document.getElementById('root');
+    const startButton = StartButton();
+    const randomizeButton = RandomizeButton(Game.playerGameboard);
 
     /**
      * Refreshes the user interface with new displays of game's objects.
@@ -23,9 +24,9 @@ const UserInterface = (() => {
     const update = (isComputerTurn) => {
         root.innerHTML = '';
         root.append(
-            StartButton().get(),
+            startButton.get(),
             PlayArea(isComputerTurn),
-            RandomizeButton(Game.playerGameboard).get(),
+            randomizeButton.get(),
         );
     }
 
@@ -40,7 +41,13 @@ const UserInterface = (() => {
         isComputerWon ? alert('Computer wins.') : alert('You win!');
     }
 
-    return { update, displayWinner }
+    return { 
+        startButton,
+        randomizeButton, 
+    
+        update, 
+        displayWinner 
+    }
 })();
 
 
