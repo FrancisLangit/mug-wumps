@@ -10,8 +10,6 @@ const GameState = (() => {
      * Returns the value of GameState's `running` variable.
      * 
      * @memberof module:GameState
-     * 
-     * @returns {undefined}
      */
     const isRunning = () => {
         return running;
@@ -21,8 +19,6 @@ const GameState = (() => {
      * Sets `running` to `true`.
      * 
      * @memberof module:GameState
-     * 
-     * @returns {undefined}
      */
     const start = () => {
         running = true;
@@ -32,8 +28,6 @@ const GameState = (() => {
      * Sets `running` to `false`.
      * 
      * @memberof module:GameState
-     * 
-     * @returns {undefined}
      */
     const stop = () => {
         running = false;

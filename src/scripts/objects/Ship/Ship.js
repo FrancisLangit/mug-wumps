@@ -2,13 +2,11 @@
  * Returns an object representing a ship on the gameboard.
  * 
  * @namespace
- * 
  * @param {int} x X-coordinate of the top-left most square of the ship.
  * @param {int} y Y-coordinate of the top-left most square of the ship. 
  * @param {int} length  Number of squares occupied by the ship.
  * @param {boolean} isVertical `true` if ship vertical on the gameboard.
- * 
- * @returns {Object} Object representing a ship.
+ * @returns {Object}
  */
 const Ship = (x, y, length, isVertical=false) => {
     // Array as long as `length` argument with booleans set to false.
@@ -26,7 +24,7 @@ const Ship = (x, y, length, isVertical=false) => {
     /**
      * Returns `true` if `isHit` of all `Square` objects in squares `true`.
      * 
-     * @returns {boolean} `true` if all ships's square hit.
+     * @returns {boolean}
      */
     const isSunk = () => {
         return hits.every((hit) => {
@@ -53,8 +51,6 @@ const Ship = (x, y, length, isVertical=false) => {
 
     /**
      * Sets all booleans in object's `hits` array back to `false`.
-     * 
-     * @returns {undefined}
      */
     const reset = () => {
         for (let i = 0; i < hits.length; i++) {
@@ -81,10 +77,8 @@ const Ship = (x, y, length, isVertical=false) => {
  * Returns a `Ship` object with randomly generated position and alignment. 
  * 
  * @namespace
- * 
  * @param {int} length Length of the Ship.
- *  
- * @returns {Object} `Ship` object.
+ * @returns {Object}
  */
 const RandomShip = (length) => {
     let isVertical = Math.random() < 0.5;
@@ -93,8 +87,7 @@ const RandomShip = (length) => {
      * Returns a randomly generated coordinate for the Ship. 
      * 
      * @param {boolean} isY `true` if y-coordinate to be generated. 
-     * 
-     * @returns {int} Number representing a coordinate.
+     * @returns {int}
      */
     const _getCoordinate = (isY) => {
         let limit = 10;

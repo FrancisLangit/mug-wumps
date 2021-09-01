@@ -8,7 +8,6 @@ import { UserInterface } from "../UserInterface";
  * @namespace
  * 
  * @param {Object} gameboard Gameboard that button will be randomizing.
- * 
  * @returns {Object}
  */
 const RandomizeButton = (gameboard) => {

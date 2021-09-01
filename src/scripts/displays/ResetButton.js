@@ -6,7 +6,6 @@ import { Game } from "../Game.js";
  * Returns button that resets the game to initial setings.
  * 
  * @namespace
- * 
  * @returns {HTMLElement} 
  */
 const RestartButton = () => {

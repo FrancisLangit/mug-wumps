@@ -22,8 +22,6 @@ const UserInterface = (() => {
      * Refreshes the user interface with new displays of game's objects.
      * 
      * @memberof module:UserInterface
-     * 
-     * @returns {undefined}
      */
     const update = (isComputerTurn) => {
         root.innerHTML = '';
@@ -39,8 +37,6 @@ const UserInterface = (() => {
      * Displays on the user interface the respective winner of the game.
      * 
      * @param {boolean} isComputerWon `true` if to display that computer won.
-     * 
-     * @returns {undefined}
      */
     const displayWinner = (isComputerWon) => {
         isComputerWon ? alert('Computer wins.') : alert('You win!');

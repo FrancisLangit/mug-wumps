@@ -2,16 +2,14 @@
  * Factory function returning `Computer` object capable of random attacks.
  * 
  * @namespace
- * 
  * @param {Object} enemyGameboard `Gameboard` object of opponent.
- * 
- * @returns {Object} `Computer` object.
+ * @returns {Object}
  */
 const Computer = (enemyGameboard) => {
     /**
      * Returns an array of positions that have yet to be hit.
      * 
-     * @returns {Array} Array of `[x ,y]` positions.
+     * @returns {Array}
      */
     const _getRandomAttackChoices = () => {
         let randomAttackChoices = [];
@@ -29,8 +27,6 @@ const Computer = (enemyGameboard) => {
     
     /**
      * Makes a legal random attack on the enemy gameboard.
-     * 
-     * @returns {undefined}
      */
     const makeRandomAttack = () => {
         const choices = _getRandomAttackChoices();
