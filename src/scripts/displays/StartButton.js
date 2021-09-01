@@ -1,3 +1,4 @@
+import { Button } from "./Button";
 import { GameState } from "../objects/GameState/GameState";
 import { UserInterface } from "../UserInterface";
 
@@ -10,15 +11,22 @@ import { UserInterface } from "../UserInterface";
  * @returns {HTMLElement} Button that starts the game.
  */
 const StartButton = () => {
-    const startButton = document.createElement('div');
-    
-    startButton.textContent = 'Start';
-    startButton.classList.add('start-button');
-    
-    startButton.addEventListener('click', () => {
+    /**
+     * Makes application start and game and hide itself.
+     * 
+     * @returns {undefined}
+     */
+    const _startGame = () => {
+        startButton.hide();
         GameState.start();
         UserInterface.update();
-    });
+    }
+    
+    const startButton = Button(
+        'Start',
+        ['start-button'],
+        _startGame
+    )
 
     return startButton;
 }

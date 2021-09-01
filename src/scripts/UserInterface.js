@@ -23,9 +23,9 @@ const UserInterface = (() => {
     const update = (isComputerTurn) => {
         root.innerHTML = '';
         root.append(
-            StartButton(),
+            StartButton().get(),
             PlayArea(isComputerTurn),
-            RandomizeButton(Game.playerGameboard)
+            RandomizeButton(Game.playerGameboard).get(),
         );
     }
 
