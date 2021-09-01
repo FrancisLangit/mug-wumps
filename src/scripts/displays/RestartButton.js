@@ -1,5 +1,6 @@
 import { Button } from "./Button.js";
 import { Game } from "../Game.js";
+import { RestartModal } from "./RestartModal.js";
 
 
 /**

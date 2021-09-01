@@ -1,3 +1,6 @@
+import { DisplayElement } from "./DisplayElement";
+
+
 /**
  * Returns an object representing a button.
  * 
@@ -8,39 +11,18 @@
  * @returns {Object}
  */
 const Button = (text, classes, callback) => {
-    const button = document.createElement('div');
+    const { get, hide, show } = DisplayElement();
+
+    const button = get();
     button.textContent = text;
     button.classList.add(...classes);
     button.addEventListener('click', callback);
 
-    /**
-     * Returns the display interface of the button.
-     * 
-     * @returns {HTMLElement}
-     */
-    const get = () => {
-        return button;
-    }
-
-    /**
-     * Hides the button from the user interface.
-     */
-    const hide = () => {
-        button.style.display = 'none';
-    }
-
-    /**
-     * Shows the button, if hidden.
-     */
-    const show = () => {
-        button.style.display = 'initial';
-    }
-    
     return {
         get,
         hide,
         show,
-    };
+    }
 }
 
 

@@ -3,7 +3,9 @@ import { PlayArea } from './displays/PlayArea';
 
 import { RandomizeButton } from './displays/RandomizeButton';
 import { StartButton } from './displays/StartButton';
-import { RestartButton } from './displays/ResetButton';
+import { RestartButton } from './displays/RestartButton';
+
+import { RestartModal } from './displays/RestartModal';
 
 
 /**
@@ -17,6 +19,8 @@ const UserInterface = (() => {
     const startButton = StartButton();
     const randomizeButton = RandomizeButton(Game.playerGameboard);
     const restartButton = RestartButton(); 
+
+    const restartModal = RestartModal();
 
     /**
      * Refreshes the user interface with new displays of game's objects.
