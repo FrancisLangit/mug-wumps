@@ -18,33 +18,16 @@ const Game = (() => {
     let computer = Computer(playerGameboard);
 
     /**
-     * Resets the game.
-     * 
-     * @memberof module:Game
-     * 
-     * @returns {undefined} 
-     */
-    const _reset = () => {
-        GameState.stop();
-        playerGameboard.reset();
-        computerGameboard.reset();
-        UserInterface.startButton.show();
-        UserInterface.randomizeButton.show();
-    }
-
-    /**
      * Checks if someone won the game and renders such effect accordingly.
      * 
      * @memberof module:Game
-     * 
-     * @returns {undefined}
      */
     const _checkWinner = () => {
         const isPlayerWon = computerGameboard.isShipsSunk();
         const isComputerWon = playerGameboard.isShipsSunk();
         if (isPlayerWon || isComputerWon) {
             UserInterface.displayWinner(isComputerWon);
-            _reset();
+            reset();
         }
     }
 
@@ -65,6 +48,23 @@ const Game = (() => {
         _checkWinner();
     }
 
+    /**
+     * Stops the game and updates all objects to initial settings.
+     * 
+     * @memberof module:Game
+     */
+    const reset = () => {
+        GameState.stop();
+
+        playerGameboard.reset();
+        computerGameboard.reset();
+
+        UserInterface.startButton.show();
+        UserInterface.randomizeButton.show();
+
+        UserInterface.update();
+    }
+
     return { 
         playerGameboard, 
         computerGameboard,
@@ -72,6 +72,7 @@ const Game = (() => {
         computer,
 
         runTurn,
+        reset,
     }
 })();
 

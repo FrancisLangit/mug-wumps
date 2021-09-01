@@ -18,6 +18,7 @@ const StartButton = () => {
         GameState.start();
         startButton.hide();
         UserInterface.randomizeButton.hide();
+        UserInterface.restartButton.show();
         UserInterface.update();
     }
     

@@ -1,7 +1,9 @@
 import { Game } from './Game';
 import { PlayArea } from './displays/PlayArea';
+
 import { RandomizeButton } from './displays/RandomizeButton';
 import { StartButton } from './displays/StartButton';
+import { RestartButton } from './displays/ResetButton';
 
 
 /**
@@ -11,8 +13,10 @@ import { StartButton } from './displays/StartButton';
  */
 const UserInterface = (() => {
     const root = document.getElementById('root');
+
     const startButton = StartButton();
     const randomizeButton = RandomizeButton(Game.playerGameboard);
+    const restartButton = RestartButton(); 
 
     /**
      * Refreshes the user interface with new displays of game's objects.
@@ -27,6 +31,7 @@ const UserInterface = (() => {
             startButton.get(),
             PlayArea(isComputerTurn),
             randomizeButton.get(),
+            restartButton.get(),
         );
     }
 
@@ -44,6 +49,7 @@ const UserInterface = (() => {
     return { 
         startButton,
         randomizeButton, 
+        restartButton,
     
         update, 
         displayWinner 
