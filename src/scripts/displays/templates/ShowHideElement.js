@@ -4,8 +4,8 @@
  * @namespace
  * @returns {Object}
  */
-const DisplayElement = () => {
-    const displayElement = document.createElement('div');
+const ShowHideElement = () => {
+    const showHideElement = document.createElement('div');
 
     /**
      * Returns object's `HTMLElement`.
@@ -13,21 +13,21 @@ const DisplayElement = () => {
      * @returns {HTMLElement}
      */
     const get = () => {
-        return displayElement;
+        return showHideElement;
     }
 
     /**
      * Hides the object.
      */
     const hide = () => {
-        displayElement.style.display = 'none';
+        showHideElement.style.display = 'none';
     }
 
     /**
      * Shows the object if it was hidden.
      */
     const show = () => {
-        displayElement.style.display = 'initial';
+        showHideElement.style.display = 'initial';
     }
     
     return {
@@ -38,4 +38,4 @@ const DisplayElement = () => {
 }
 
 
-export { DisplayElement }
+export { ShowHideElement }

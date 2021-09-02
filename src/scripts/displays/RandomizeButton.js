@@ -3,7 +3,7 @@ import { UserInterface } from "../UserInterface";
 
 
 /**
- * Returns object representing button that re-randomizes a `Gameboard`.
+ * Returns `Button` object that re-randomizes a `Gameboard` object.
  * 
  * @namespace
  * 
@@ -11,15 +11,10 @@ import { UserInterface } from "../UserInterface";
  * @returns {Object}
  */
 const RandomizeButton = (gameboard) => {
-    /**
-     * Re-randomizes ships on `Gameboard` object passed as argument.
-     */
-    const _randomizeGameboard = () => {
+    return Button('Randomize', () => {
         gameboard.reset();
         UserInterface.update();
-    }
-    
-    return Button('Randomize', ['randomize-button'], (_randomizeGameboard));
+    });
 }
 
 

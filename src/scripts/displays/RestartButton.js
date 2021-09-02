@@ -16,7 +16,7 @@ const RestartButton = () => {
         UserInterface.restartModal.show();
     }
     
-    const restartButton = Button('Restart', ['restart-button'], restartGame);
+    const restartButton = Button('Restart', restartGame);
     restartButton.hide(); // Restart button is hidden initially.
 
     return restartButton;

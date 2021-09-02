@@ -1,4 +1,4 @@
-import { DisplayElement } from "./DisplayElement";
+import { ShowHideElement } from "./ShowHideElement";
 
 
 /**
@@ -10,12 +10,14 @@ import { DisplayElement } from "./DisplayElement";
  * @param {Function} callback Callback function called when button clicked.
  * @returns {Object}
  */
-const Button = (text, classes, callback) => {
-    const { get, hide, show } = DisplayElement();
+const Button = (text, callback) => {
+    const { get, hide, show } = ShowHideElement();
 
     const button = get();
+
     button.textContent = text;
-    button.classList.add(...classes);
+    button.style.cursor = 'pointer';
+    
     button.addEventListener('click', callback);
 
     return {
