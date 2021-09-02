@@ -10,7 +10,7 @@ import { UserInterface } from "../UserInterface";
  * @returns {Object}
  */
 const RestartModal = () => {
-    // Initialize initially hidden ShowHideElement.
+    // Create hidden ShowHideElement.
     const { get, hide, show } = ShowHideElement();
     hide();
 
@@ -22,11 +22,11 @@ const RestartModal = () => {
     const _getText = () => {
         const textContainer = document.createElement('div');
         textContainer.textContent = `Restart? You will lose this game.`;
-        return textContainer;    
+        return textContainer;
     }
 
     /**
-     * Returns button that resets the game and user interface.
+     * Returns "Yes" button that resets the game and user interface.
      * 
      * @returns {HTMLElement}
      */
@@ -34,13 +34,14 @@ const RestartModal = () => {
         const yesButton = Button('Yes', () => {
             Game.reset();
             UserInterface.restartButton.hide();
+            UserInterface.winnerModal.hide();
             hide();
         });
         return yesButton.get();
     }
 
     /**
-     * Returns button that closes the modal.
+     * Returns "Cancel" button that closes the modal.
      * 
      * @returns {HTMLElement}
      */

@@ -18,6 +18,16 @@ const Game = (() => {
     let computer = Computer(playerGameboard);
 
     /**
+     * Stops the game.
+     * 
+     * @memberof module:Game
+     */
+     const _stop = () => {
+        GameState.stop();
+        UserInterface.update();
+    }
+
+    /**
      * Checks if someone won the game and renders such effect accordingly.
      * 
      * @memberof module:Game
@@ -27,7 +37,7 @@ const Game = (() => {
         const isComputerWon = playerGameboard.isShipsSunk();
         if (isPlayerWon || isComputerWon) {
             UserInterface.displayWinner(isComputerWon);
-            reset();
+            _stop();
         }
     }
 
@@ -43,9 +53,11 @@ const Game = (() => {
     const runTurn = (playerAttackX, playerAttackY) => {
         computerGameboard.receiveAttack(playerAttackX, playerAttackY);
         UserInterface.update(true);
-        computer.makeRandomAttack();
-        setTimeout(UserInterface.update, 500);
         _checkWinner();
+        if (GameState.isRunning()) {
+            computer.makeRandomAttack();
+            setTimeout(UserInterface.update, 500);
+        }
     }
 
     /**
@@ -55,13 +67,10 @@ const Game = (() => {
      */
     const reset = () => {
         GameState.stop();
-
         playerGameboard.reset();
         computerGameboard.reset();
-
         UserInterface.startButton.show();
         UserInterface.randomizeButton.show();
-
         UserInterface.update();
     }
 
