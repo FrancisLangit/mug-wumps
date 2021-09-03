@@ -23,6 +23,7 @@ const RestartModal = () => {
     const _getText = () => {
         const textContainer = document.createElement('div');
         textContainer.textContent = `Restart? This game will be lost.`;
+        textContainer.classList.add('modal-text');
         return textContainer;
     }
 
@@ -37,7 +38,7 @@ const RestartModal = () => {
             UserInterface.restartButton.hide();
             UserInterface.winnerModal.hide();
             hide();
-        }, true);
+        });
         return yesButton.get();
     }
 
@@ -47,7 +48,7 @@ const RestartModal = () => {
      * @returns {HTMLElement}
      */
     const _getCancelButton = () => {
-        return Button('Cancel', hide, true).get();
+        return Button('Cancel', hide).get();
     }
 
     /**

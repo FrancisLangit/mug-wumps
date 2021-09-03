@@ -8,17 +8,26 @@
     padding-top: 100px;
 
     background: rgba(0, 0, 0, 0.4);
+
+    font-family: 'Open Sans Regular';
+    font-size: 20px;
     
     overflow: auto;
     z-index: 1;
 
     &-content {
-        width: 50%;
+        width: 20%;
         margin: auto;
         padding: 20px;
 
         background: white;
         border: 1px solid #888;
+        border-radius: 12px;
 
+        text-align: center;
+    }
+
+    &-text {
+        margin-bottom: 15px;
     }
 }

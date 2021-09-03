@@ -38,6 +38,7 @@ const WinnerModal = () => {
         const winnerText = document.createElement('div');
         const winner = computerWon ? 'Computer' : 'Player';
         winnerText.textContent = `${winner} has won.`;
+        winnerText.classList.add('modal-text');
         return winnerText;
     }
 
@@ -47,7 +48,7 @@ const WinnerModal = () => {
      * @returns {HTMLElement}
      */
     const _getCloseButton = () => {
-        return Button('Close', hide).get();
+        return Button('Close', hide, true).get();
     }
 
     /**
