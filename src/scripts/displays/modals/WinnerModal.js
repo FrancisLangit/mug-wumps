@@ -1,7 +1,12 @@
 import { Button } from "../buttons/Button";
 import { ShowHideElement } from "../ShowHideElement"; 
 
-
+/**
+ * Returns `ShowHideElement` of a modal showing winner of the game.
+ * 
+ * @namespace
+ * @returns {Object}
+ */
 const WinnerModal = () => {
     let computerWon;
 
@@ -41,14 +46,38 @@ const WinnerModal = () => {
      * 
      * @returns {HTMLElement}
      */
-    const _getCloseButton = () => Button('[X]', hide).get();
+    const _getCloseButton = () => {
+        return Button('Close', hide).get();
+    }
 
+    /**
+     * Returns `div` holding contents of modal.
+     * 
+     * @returns {HTMLElement}
+     */
+    const _getContent = () => {
+        const content = document.createElement('div');
+        content.classList.add('modal-content');
+        content.append(
+            _getWinnerText(), 
+            _getSubText(), 
+            _getCloseButton()
+        )
+        return content;
+    }
+
+    /**
+     * Updates the object's local `computerWon` boolean.
+     * 
+     * @param {boolean} isComputerWon `true` if computer won game.
+     */
     const update = (isComputerWon) => {
         computerWon = isComputerWon;
     }
 
     const modal = get();
-    modal.append(_getWinnerText(), _getSubText(), _getCloseButton());
+    modal.append(_getContent());
+    modal.classList.add('modal');
 
     return {
         get,

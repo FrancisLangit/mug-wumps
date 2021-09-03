@@ -48,8 +48,25 @@ const RestartModal = () => {
      */
     const _getCancelButton = () => Button('Cancel', hide).get();
 
+    /**
+     * Returns `div` holding contents of modal.
+     * 
+     * @returns {HTMLElement}
+     */
+    const _getContent = () => {
+        const content = document.createElement('div');
+        content.classList.add('modal-content');
+        content.append(
+            _getText(),
+            _getYesButton(),
+            _getCancelButton(),
+        )
+        return content;
+    }
+
     const modal = get();
-    modal.append(_getText(), _getYesButton(), _getCancelButton());
+    modal.append(_getContent());
+    modal.classList.add('modal');
 
     return {
         get,
