@@ -7,6 +7,7 @@ import { UserInterface } from "../UserInterface";
 /**
  * Returns `ShowHideElement` of a modal prompting user to restart game.
  * 
+ * @namespace
  * @returns {Object}
  */
 const RestartModal = () => {
@@ -21,7 +22,7 @@ const RestartModal = () => {
      */
     const _getText = () => {
         const textContainer = document.createElement('div');
-        textContainer.textContent = `Restart? You will lose this game.`;
+        textContainer.textContent = `Restart? This game will be lost.`;
         return textContainer;
     }
 
