@@ -1,4 +1,4 @@
-import { ShowHideElement } from "./ShowHideElement";
+import { ShowHideElement } from "../ShowHideElement";
 
 
 /**

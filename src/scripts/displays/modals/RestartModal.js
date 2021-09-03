@@ -1,7 +1,7 @@
-import { Button } from "./templates/Button";
-import { ShowHideElement } from "./templates/ShowHideElement";
-import { Game } from "../Game";
-import { UserInterface } from "../UserInterface";
+import { Button } from "../buttons/Button";
+import { Game } from "../../Game";
+import { ShowHideElement } from "../ShowHideElement";
+import { UserInterface } from "../../UserInterface";
 
 
 /**

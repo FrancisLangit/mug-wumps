@@ -1,5 +1,5 @@
 import { Game } from '../Game';
-import { GameboardDisplay } from './GameboardDisplay';
+import { GameboardDisplay } from './gameboards/GameboardDisplay';
 import { GameState } from '../objects/GameState/GameState';
 
 

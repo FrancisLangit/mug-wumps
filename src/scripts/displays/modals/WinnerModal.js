@@ -1,5 +1,5 @@
-import { Button } from "./templates/Button";
-import { ShowHideElement } from "./templates/ShowHideElement"; 
+import { Button } from "../buttons/Button";
+import { ShowHideElement } from "../ShowHideElement"; 
 
 
 const WinnerModal = () => {

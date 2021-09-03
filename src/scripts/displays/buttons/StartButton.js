@@ -1,6 +1,6 @@
-import { Button } from "./templates/Button";
-import { GameState } from "../objects/GameState/GameState";
-import { UserInterface } from "../UserInterface";
+import { Button } from "./Button";
+import { GameState } from "../../objects/GameState/GameState";
+import { UserInterface } from "../../UserInterface";
 
 
 /**

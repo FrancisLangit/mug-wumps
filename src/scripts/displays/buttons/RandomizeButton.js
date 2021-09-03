@@ -1,5 +1,5 @@
-import { Button } from "./templates/Button.js";
-import { UserInterface } from "../UserInterface";
+import { Button } from "./Button.js";
+import { UserInterface } from "../../UserInterface";
 
 
 /**

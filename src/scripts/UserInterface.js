@@ -1,10 +1,13 @@
 import { Game } from './Game';
 import { PlayArea } from './displays/PlayArea';
-import { RandomizeButton } from './displays/RandomizeButton';
-import { RestartButton } from './displays/RestartButton';
-import { RestartModal } from './displays/RestartModal';
-import { StartButton } from './displays/StartButton';
-import { WinnerModal } from './displays/WinnerModal';
+
+import { RandomizeButton } from './displays/buttons/RandomizeButton';
+import { RestartButton } from './displays/buttons/RestartButton';
+import { StartButton } from './displays/buttons/StartButton';
+
+import { RestartModal } from './displays/modals/RestartModal';
+import { WinnerModal } from './displays/modals/WinnerModal';
+
 
 
 /**
