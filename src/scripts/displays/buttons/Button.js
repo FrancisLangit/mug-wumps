@@ -14,10 +14,8 @@ const Button = (text, callback) => {
     const { get, hide, show } = ShowHideElement();
 
     const button = get();
-
     button.textContent = text;
-    button.style.cursor = 'pointer';
-    
+    button.classList.add('button');
     button.addEventListener('click', callback);
 
     return {
