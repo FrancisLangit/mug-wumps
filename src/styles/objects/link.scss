@@ -1,0 +1,16 @@
+.link {
+    display: inline-block;
+
+    margin-right: 5px;
+
+    color: grey;
+    font-family: 'Open Sans Regular';
+    text-decoration: underline;
+
+    cursor: pointer;
+    user-select: none;
+
+    &:hover{
+        text-decoration: none;
+    }
+} 

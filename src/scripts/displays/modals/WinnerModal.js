@@ -61,7 +61,7 @@ const WinnerModal = () => {
         content.append(
             _getWinnerText(), 
             _getSubText(), 
-            _getCloseButton()
+            _getCloseButton(),
         )
         return content;
     }

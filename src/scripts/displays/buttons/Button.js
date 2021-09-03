@@ -6,16 +6,16 @@ import { ShowHideElement } from "../ShowHideElement";
  * 
  * @namespace
  * @param {string} text Text to be displayed in button.
- * @param {Array} classes CSS classes of the button.
  * @param {Function} callback Callback function called when button clicked.
+ * @param {boolean} isLink `true` if button to be styled as link.
  * @returns {Object}
  */
-const Button = (text, callback) => {
+const Button = (text, callback, isLink) => {
     const { get, hide, show } = ShowHideElement();
-
+    
     const button = get();
     button.textContent = text;
-    button.classList.add('button');
+    button.classList.add(isLink ? 'link' : 'button');
     button.addEventListener('click', callback);
 
     return {

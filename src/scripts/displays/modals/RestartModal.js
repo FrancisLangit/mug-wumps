@@ -37,7 +37,7 @@ const RestartModal = () => {
             UserInterface.restartButton.hide();
             UserInterface.winnerModal.hide();
             hide();
-        });
+        }, true);
         return yesButton.get();
     }
 
@@ -46,7 +46,9 @@ const RestartModal = () => {
      * 
      * @returns {HTMLElement}
      */
-    const _getCancelButton = () => Button('Cancel', hide).get();
+    const _getCancelButton = () => {
+        return Button('Cancel', hide, true).get();
+    }
 
     /**
      * Returns `div` holding contents of modal.
