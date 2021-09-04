@@ -57,6 +57,7 @@ const Game = (() => {
         if (GameState.isRunning()) {
             computer.makeRandomAttack();
             setTimeout(UserInterface.update, 500);
+            _checkWinner();
         }
     }
 

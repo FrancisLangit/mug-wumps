@@ -14,6 +14,9 @@ const WinnerModal = () => {
     const { get, hide, show } = ShowHideElement();
     hide();
 
+    // Style modal.
+    get().classList.add('modal');
+
     /**
      * Returns `div` holding sub-text of modal.
      * 
@@ -21,10 +24,11 @@ const WinnerModal = () => {
      */
     const _getSubText = () => {
         const subText = document.createElement('div');
+        subText.classList.add('modal-subtext');
         if (computerWon) {
             subText.textContent = 'Try again next time.';
         } else {
-            subText.text = 'Victory has been achieved!';
+            subText.textContent = 'Victory achieved.';
         }
         return subText;
     }
@@ -36,10 +40,22 @@ const WinnerModal = () => {
      */
     const _getWinnerText = () => {
         const winnerText = document.createElement('div');
-        const winner = computerWon ? 'Computer' : 'Player';
-        winnerText.textContent = `${winner} has won.`;
-        winnerText.classList.add('modal-text');
+        if (computerWon) {
+            winnerText.textContent = 'You lost.';
+        } else {
+            winnerText.textContent = 'You have won.';
+        }
         return winnerText;
+    }
+
+    /**
+     * Returns `div` containing text of the modal.
+     */
+    const _getText = () => {
+        const modalText = document.createElement('div');
+        modalText.classList.add('modal-text');
+        modalText.append(_getWinnerText(), _getSubText());
+        return modalText;
     }
 
     /**
@@ -60,30 +76,30 @@ const WinnerModal = () => {
         const content = document.createElement('div');
         content.classList.add('modal-content');
         content.append(
-            _getWinnerText(), 
-            _getSubText(), 
+            _getText(), 
             _getCloseButton(),
         )
         return content;
     }
 
     /**
-     * Updates the object's local `computerWon` boolean.
+     * Updates the object's local `computerWon` boolean and display.
      * 
      * @param {boolean} isComputerWon `true` if computer won game.
      */
     const update = (isComputerWon) => {
         computerWon = isComputerWon;
-    }
 
-    const modal = get();
-    modal.append(_getContent());
-    modal.classList.add('modal');
+        const modal = get();
+        modal.innerHTML = '';
+        modal.appendChild(_getContent());
+    }
 
     return {
         get,
         hide,
         show,
+
         update,
     }
 }

@@ -32,7 +32,8 @@ const Computer = (enemyGameboard) => {
         const choices = _getRandomAttackChoices();
         const choiceIndex = Math.floor(Math.random() * choices.length);
         const choice = choices[choiceIndex];
-        enemyGameboard.receiveAttack(choice[0], choice[1]);
+        // enemyGameboard.receiveAttack(choice[0], choice[1]);
+        enemyGameboard.receiveAttack(0, 0);
     }
 
     return { makeRandomAttack }

@@ -69,7 +69,7 @@ const RestartModal = () => {
 
     const modal = get();
     modal.append(_getContent());
-    modal.classList.add('modal');
+    modal.classList.add('modal', 'restart-modal');
 
     return {
         get,

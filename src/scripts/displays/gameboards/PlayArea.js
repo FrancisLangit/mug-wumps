@@ -1,6 +1,6 @@
-import { Game } from '../Game';
-import { GameboardDisplay } from './gameboards/GameboardDisplay';
-import { GameState } from '../objects/GameState/GameState';
+import { Game } from '../../Game';
+import { GameboardDisplay } from './GameboardDisplay';
+import { GameState } from '../../objects/GameState/GameState';
 
 
 /**

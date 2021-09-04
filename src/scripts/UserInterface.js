@@ -1,13 +1,13 @@
 import { Game } from './Game';
-import { PlayArea } from './displays/PlayArea';
 
 import { RandomizeButton } from './displays/buttons/RandomizeButton';
 import { RestartButton } from './displays/buttons/RestartButton';
 import { StartButton } from './displays/buttons/StartButton';
 
+import { PlayArea } from './displays/gameboards/PlayArea';
+
 import { RestartModal } from './displays/modals/RestartModal';
 import { WinnerModal } from './displays/modals/WinnerModal';
-
 
 
 /**
@@ -59,7 +59,7 @@ const UserInterface = (() => {
         winnerModal,
     
         update, 
-        displayWinner 
+        displayWinner,
     }
 })();
 
