@@ -28,7 +28,7 @@ const WinnerModal = () => {
         if (computerWon) {
             subText.textContent = 'Try again next time.';
         } else {
-            subText.textContent = 'Victory achieved.';
+            subText.textContent = 'Mission accomplished.';
         }
         return subText;
     }
@@ -43,7 +43,7 @@ const WinnerModal = () => {
         if (computerWon) {
             winnerText.textContent = 'You lost.';
         } else {
-            winnerText.textContent = 'You have won.';
+            winnerText.textContent = 'You win!';
         }
         return winnerText;
     }

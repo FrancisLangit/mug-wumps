@@ -21,8 +21,49 @@ const UserInterface = (() => {
     const startButton = StartButton();
     const randomizeButton = RandomizeButton(Game.playerGameboard);
     const restartButton = RestartButton();
+
     const restartModal = RestartModal();
     const winnerModal = WinnerModal();
+    
+    /**
+     * Returns `div` holding header section of user interface.
+     * 
+     * @returns {HTMLElement}
+     */
+    const _getHeader = () => {
+        const header = document.createElement('div');
+        header.classList.add('header');
+        header.textContent = 'blind.grid';
+        return header;
+    } 
+
+    /**
+     * Returns `div` holding updated `PlayArea` object.
+     * 
+     * @returns {HTMLElement}
+     */
+    const _getPlayArea = (isComputerTurn) => {
+        const playAreaContainer = document.createElement('div');
+        playAreaContainer.classList.add('play-area');
+        playAreaContainer.appendChild(PlayArea(isComputerTurn));
+        return playAreaContainer;
+    }
+
+    /**
+     * Returns `div` with buttons that control the game.
+     * 
+     * @returns {HTMLElement}
+     */
+    const _getControls = () => {
+        const controls = document.createElement('div');
+        controls.classList.add('controls');
+        controls.append(
+            startButton.get(),
+            randomizeButton.get(),
+            restartButton.get(),
+        );
+        return controls;
+    }
 
     /**
      * Refreshes the user interface with new displays of game's objects.
@@ -32,10 +73,9 @@ const UserInterface = (() => {
     const update = (isComputerTurn) => {
         root.innerHTML = '';
         root.append(
-            startButton.get(),
-            PlayArea(isComputerTurn),
-            randomizeButton.get(),
-            restartButton.get(),
+            _getHeader(),
+            _getPlayArea(isComputerTurn),
+            _getControls(), 
             restartModal.get(),
             winnerModal.get(),
         );

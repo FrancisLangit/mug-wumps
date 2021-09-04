@@ -1,8 +1,12 @@
-@import 'objects/button.scss';
-@import 'objects/gameboardCell.scss';
-@import 'objects/gameboard.scss';
-@import 'objects/link.scss';
-@import 'objects/modal.scss';
+@import 'sections/header';
+@import 'sections/playArea.scss';
+@import 'sections/controls.scss';
+
+@import 'objects/button';
+@import 'objects/gameboardCell';
+@import 'objects/gameboard';
+@import 'objects/link';
+@import 'objects/modal';
 
 
 @font-face {
@@ -18,4 +22,9 @@
 @font-face {
     font-family: 'Open Sans Light';
     src: url('../assets/Open Sans Light.ttf');
+}
+
+
+body {
+    text-align: center;
 }
