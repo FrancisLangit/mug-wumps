@@ -11,7 +11,7 @@ const Footer = () => {
 
     const footerSubtext = document.createElement('div');
     footerSubtext.classList.add('footer-subtext');
-    footerSubtext.textContent = 'Copyright © 2021 Francis Langit';
+    footerSubtext.textContent = 'Copyright © 2021 • Francis Langit';
 
     const footer = document.createElement('div');
     footer.classList.add('footer');

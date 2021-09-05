@@ -1,21 +1,21 @@
 .footer {
-    display: inline-block;
+    display: block;
 
-    margin: 50px 0;
+    margin: 50px auto;
     padding: 10px;
+    width: 225px;
 
-    border: 1px dotted grey;
-    border-radius: 10px;
+    border-bottom: 1px dotted grey;
 
     &-text {
         color: black;
-        font-size: 24px;
+        font-size: 20px;
         font-family: 'Open Sans Bold';
     }
 
     &-subtext {
         color: grey;
-        font-size: 15px;
+        font-size: 12px;
         font-family: 'Open Sans Light';
     }
 }
