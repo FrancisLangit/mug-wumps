@@ -5,13 +5,13 @@
     border: 0.5px solid black;
 
     &-computer:hover {
-        background-color: rgb(235, 235, 235);
+        background-color: rgb(225, 225, 225);
     
         cursor: pointer;
     }
     
     &-hit {
-        background-color: rgb(200, 105, 105);    
+        background-color: rgb(200, 105, 105);
     }
     
     &-miss {

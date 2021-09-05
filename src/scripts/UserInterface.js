@@ -29,6 +29,22 @@ const UserInterface = (() => {
     const winnerModal = WinnerModal();
 
     /**
+     * Returns `div` with buttons that control the game.
+     * 
+     * @returns {HTMLElement}
+     */
+     const _getControls = () => {
+        const controls = document.createElement('div');
+        controls.classList.add('controls');
+        controls.append(
+            startButton.get(),
+            randomizeButton.get(),
+            restartButton.get(),
+        );
+        return controls;
+    }
+
+    /**
      * Returns `div` holding updated `PlayArea` object.
      * 
      * @returns {HTMLElement}
@@ -41,22 +57,6 @@ const UserInterface = (() => {
     }
 
     /**
-     * Returns `div` with buttons that control the game.
-     * 
-     * @returns {HTMLElement}
-     */
-    const _getControls = () => {
-        const controls = document.createElement('div');
-        controls.classList.add('controls');
-        controls.append(
-            startButton.get(),
-            randomizeButton.get(),
-            restartButton.get(),
-        );
-        return controls;
-    }
-
-    /**
      * Refreshes the user interface with new displays of game's objects.
      * 
      * @memberof module:UserInterface
@@ -65,8 +65,8 @@ const UserInterface = (() => {
         root.innerHTML = '';
         root.append(
             Header(),
-            _getPlayArea(isComputerTurn),
             _getControls(), 
+            _getPlayArea(isComputerTurn),
             restartModal.get(),
             winnerModal.get(),
             Footer(),

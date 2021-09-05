@@ -2,7 +2,7 @@
     display: inline-block;
 
     margin-right: 10px;
-    padding: 3px;
+    padding: 5px 10px;
 
     border: 1px solid black;
     border-radius: 5px;
@@ -14,9 +14,12 @@
     cursor: pointer;
     user-select: none;
 
+    transition: all 0.25s;
+
     &:hover {
         background: black;
 
         color: white;
+
     }
 }
