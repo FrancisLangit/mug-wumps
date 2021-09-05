@@ -1,6 +1,6 @@
 ![Banner](./readme_assets/banner.png)
 
-A bastardized version of [battleship](https://en.wikipedia.org/wiki/Battleship_(game)) with inspirations taken from the 1970's video game, [Mugwump](https://en.wikipedia.org/wiki/Mugwump_(video_game)) that is playable on any web-browser of choice. Made in partial completion of [The Odin Project's Full Stack JavaScript Path](https://www.theodinproject.com/paths/full-stack-javascript).
+A bastardized version of [battleship](https://en.wikipedia.org/wiki/Battleship_(game)) with inspirations taken from the 1970's video game, [Mugwump](https://en.wikipedia.org/wiki/Mugwump_(video_game)), that is playable on any web-browser of choice. Made in partial completion of [The Odin Project's Full Stack JavaScript Path](https://www.theodinproject.com/paths/full-stack-javascript).
 
 ## Installation
 [A live deployment of `mug-wumps` is available online.](https://francislangit.github.io/mug-wumps/) However, for those that would like to locally access the repository:
