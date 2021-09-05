@@ -65,8 +65,8 @@ const UserInterface = (() => {
         root.innerHTML = '';
         root.append(
             Header(),
-            _getControls(), 
             _getPlayArea(isComputerTurn),
+            _getControls(), 
             restartModal.get(),
             winnerModal.get(),
             Footer(),
