@@ -9,6 +9,7 @@ import { PlayArea } from './displays/gameboards/PlayArea';
 import { RestartModal } from './displays/modals/RestartModal';
 import { WinnerModal } from './displays/modals/WinnerModal';
 
+import { Header } from './displays/Header';
 import { Footer } from './displays/Footer';
 
 
@@ -26,18 +27,6 @@ const UserInterface = (() => {
 
     const restartModal = RestartModal();
     const winnerModal = WinnerModal();
-    
-    /**
-     * Returns `div` holding header section of user interface.
-     * 
-     * @returns {HTMLElement}
-     */
-    const _getHeader = () => {
-        const header = document.createElement('div');
-        header.classList.add('header');
-        header.textContent = 'blind.grid';
-        return header;
-    } 
 
     /**
      * Returns `div` holding updated `PlayArea` object.
@@ -75,7 +64,7 @@ const UserInterface = (() => {
     const update = (isComputerTurn) => {
         root.innerHTML = '';
         root.append(
-            _getHeader(),
+            Header(),
             _getPlayArea(isComputerTurn),
             _getControls(), 
             restartModal.get(),

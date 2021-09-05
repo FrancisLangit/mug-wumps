@@ -1,6 +1,13 @@
 .header {
     margin-top: 50px;
 
-    font-family: 'Open Sans Bold';
-    font-size: 70px;
+    &-text {
+        font-family: 'Open Sans Bold';
+        font-size: 50px;
+    }
+
+    &-subtext{
+        font-family: 'Open Sans Light';
+        font-size: 20px;
+    }
 }

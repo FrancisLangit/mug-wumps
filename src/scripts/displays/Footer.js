@@ -1,6 +1,7 @@
 /**
  * Returns `div` containing footer section of user interface.
  * 
+ * @namespace
  * @returns {HTMLElement}
  */
 const Footer = () => {
@@ -8,9 +9,8 @@ const Footer = () => {
     footerText.classList.add('footer-text');
     footerText.textContent = 'MIT License';
 
-    const footerSubtext = document.createElement('a');
+    const footerSubtext = document.createElement('div');
     footerSubtext.classList.add('footer-subtext');
-    footerSubtext.href = 'http://github.com/FrancisLangit';
     footerSubtext.textContent = 'Copyright © 2021 Francis Langit';
 
     const footer = document.createElement('div');
