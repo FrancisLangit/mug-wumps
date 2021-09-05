@@ -1,0 +1,21 @@
+.footer {
+    display: block;
+
+    margin: 50px auto;
+    padding: 10px;
+    width: 225px;
+
+    border-bottom: 1px dotted grey;
+
+    &-text {
+        color: white;
+        font-size: 20px;
+        font-family: 'Open Sans Bold';
+    }
+
+    &-subtext {
+        color: snow;
+        font-size: 12px;
+        font-family: 'Open Sans Light';
+    }
+}

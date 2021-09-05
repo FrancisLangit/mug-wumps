@@ -1,0 +1,13 @@
+.gameboard {
+    display: inline-grid;
+    grid-template-columns: repeat(10, 30px);
+    grid-gap: 3px;
+
+    margin: 5px 15px;
+
+    &-inactive div {
+        border: 0.5px solid rgb(65, 65, 65);
+    
+        pointer-events: none;
+    }
+}

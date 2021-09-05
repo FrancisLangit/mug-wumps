@@ -1,7 +1,16 @@
 import { Game } from './Game';
-import { PlayArea } from './displays/PlayArea';
-import { RandomizeButton } from './displays/RandomizeButton';
-import { StartButton } from './displays/StartButton';
+
+import { RandomizeButton } from './displays/buttons/RandomizeButton';
+import { RestartButton } from './displays/buttons/RestartButton';
+import { StartButton } from './displays/buttons/StartButton';
+
+import { PlayArea } from './displays/gameboards/PlayArea';
+
+import { RestartModal } from './displays/modals/RestartModal';
+import { WinnerModal } from './displays/modals/WinnerModal';
+
+import { Header } from './displays/Header';
+import { Footer } from './displays/Footer';
 
 
 /**
@@ -10,37 +19,80 @@ import { StartButton } from './displays/StartButton';
  * @module UserInterface
  */
 const UserInterface = (() => {
-    // Get root div of application's index.html page.
     const root = document.getElementById('root');
+
+    const startButton = StartButton();
+    const randomizeButton = RandomizeButton(Game.playerGameboard);
+    const restartButton = RestartButton();
+
+    const restartModal = RestartModal();
+    const winnerModal = WinnerModal();
+
+    /**
+     * Returns `div` with buttons that control the game.
+     * 
+     * @returns {HTMLElement}
+     */
+     const _getControls = () => {
+        const controls = document.createElement('div');
+        controls.classList.add('controls');
+        controls.append(
+            startButton.get(),
+            randomizeButton.get(),
+            restartButton.get(),
+        );
+        return controls;
+    }
+
+    /**
+     * Returns `div` holding updated `PlayArea` object.
+     * 
+     * @returns {HTMLElement}
+     */
+    const _getPlayArea = (isComputerTurn) => {
+        const playAreaContainer = document.createElement('div');
+        playAreaContainer.classList.add('play-area');
+        playAreaContainer.appendChild(PlayArea(isComputerTurn));
+        return playAreaContainer;
+    }
 
     /**
      * Refreshes the user interface with new displays of game's objects.
      * 
      * @memberof module:UserInterface
-     * 
-     * @returns {undefined}
      */
     const update = (isComputerTurn) => {
         root.innerHTML = '';
         root.append(
-            StartButton(),
-            PlayArea(isComputerTurn),
-            RandomizeButton(Game.playerGameboard)
+            Header(),
+            _getPlayArea(isComputerTurn),
+            _getControls(), 
+            restartModal.get(),
+            winnerModal.get(),
+            Footer(),
         );
     }
 
     /**
-     * Displays on the user interface the respective winner of the game.
+     * Displays winner of the game.
      * 
      * @param {boolean} isComputerWon `true` if to display that computer won.
-     * 
-     * @returns {undefined}
      */
     const displayWinner = (isComputerWon) => {
-        isComputerWon ? alert('Computer wins.') : alert('You win!');
+        winnerModal.update(isComputerWon);
+        winnerModal.show();
     }
 
-    return { update, displayWinner }
+    return { 
+        startButton,
+        randomizeButton,
+        restartButton,
+        restartModal,
+        winnerModal,
+    
+        update, 
+        displayWinner,
+    }
 })();
 
 

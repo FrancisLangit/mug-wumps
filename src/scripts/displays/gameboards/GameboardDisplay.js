@@ -5,12 +5,10 @@ import { GameboardCellDisplay } from "./GameboardCellDisplay";
  * Returns an object representing a rendered Gameboard.
  * 
  * @namespace
- * 
  * @param {Object} gameboard `Gameboard` object to render.
- * @param {Object} isInactive `true` if to be rendered as unclickable.
- * @param {Object} isComputer `true` if `Gameboard` object is computer's.
- * 
- * @returns {Object} Object representing a rendered gameboard.
+ * @param {boolean} isInactive `true` if to be rendered as unclickable.
+ * @param {boolean} isComputer `true` if `Gameboard` object is computer's.
+ * @returns {Object}
  */
 const GameboardDisplay = (gameboard, isInactive, isComputer) => {
     let element = document.createElement('div');
@@ -20,7 +18,6 @@ const GameboardDisplay = (gameboard, isInactive, isComputer) => {
      * 
      * @param {int} x X-coordinate of the cell.
      * @param {int} y Y-coordinate of the cell.
-     * 
      * @returns {HTMLElement}
      */
     const _getCell = (x, y) => {
@@ -29,8 +26,6 @@ const GameboardDisplay = (gameboard, isInactive, isComputer) => {
 
     /**
      * Fills up the gameboard's grid `div` with its cells.
-     * 
-     * @returns {undefined}
      */
     const _fill = () => {
         for (let y = 0; y < 10; y++) {
@@ -42,8 +37,6 @@ const GameboardDisplay = (gameboard, isInactive, isComputer) => {
 
     /**
      * Adds respective classes to the gameboard's display.
-     * 
-     * @returns {undefined}
      */
     const _style = () => {
         element.classList.add('gameboard');

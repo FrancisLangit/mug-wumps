@@ -2,9 +2,7 @@
  * Returns a `Player` object that can be controlled by the user.
  * 
  * @namespace
- * 
  * @param {Object} enemyGameboard `Gameboard` object of opponent. 
- * 
  * @returns {Object} Player object.
  */
 const Player = (enemyGameboard) => {

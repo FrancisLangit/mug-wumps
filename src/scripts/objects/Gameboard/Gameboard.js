@@ -5,18 +5,15 @@ import { RandomShip } from '../Ship/Ship';
  * Returns an object representing a gameboard.
  * 
  * @namespace
- * 
- * @param {boolean} isPrefilled `true` if `Gameboard.ships` to be prefilled 
- *      with `Ship` objects.
- * 
- * @returns {Object} Gameboard object.
+ * @param {boolean} isPrefilled `true` if `Gameboard.ships` to be prefilled.
+ * @returns {Object}
  */
 const Gameboard = (isPrefilled=false) => {
     /**
      * Returns an array to contain `Ship` objects of gameboard. Is prefilled
      * with `Ship` objects if `isPrefilled` argument is `true`.
      * 
-     * @returns {Array} Array to contain `Ship` objects.
+     * @returns {Array}
      */
     const _getShips = () => {
         let ships = [];
@@ -34,8 +31,6 @@ const Gameboard = (isPrefilled=false) => {
      * Pushes a passed `Ship` object into `ships` array.
      * 
      * @param {Object} ship `Ship` object to be added to gameboard. 
-     * 
-     * @returns {undefined}
      */
     const addShip = (ship) => {
         ships.push(ship);
@@ -47,8 +42,6 @@ const Gameboard = (isPrefilled=false) => {
      * 
      * @param {int} x X-coordinate of the attack.
      * @param {int} y Y-coordinate of the attack.
-     * 
-     * @returns {undefined}
      */
     const receiveAttack = (x, y) => {
         let isHit = false;
@@ -82,8 +75,7 @@ const Gameboard = (isPrefilled=false) => {
      * @param {int} y Y-coordinate of target position.
      * @param {boolean} getIsHit `true` if method to return if position is on
      *      a ship AND if it is hit.
-     * 
-     * @returns {boolean} `true` if `[x, y]` on hit square of `Ship`.
+     * @returns {boolean}
      */
     const isPositionShip = (x, y, getIsHit) => {
         for (const ship of ships) {
@@ -101,8 +93,7 @@ const Gameboard = (isPrefilled=false) => {
      * 
      * @param {int} x X-coordinate of target position.
      * @param {int} y Y-coordinate of target position.
-     * 
-     * @returns {boolean} `true` if `[x, y]` in `misses`.
+     * @returns {boolean}
      */
     const isPositionMiss = (x, y) => {
         const missesAsString = JSON.stringify(misses);
@@ -112,8 +103,6 @@ const Gameboard = (isPrefilled=false) => {
 
     /**
      * Re-randomizes `ships` array and empties `misses` array.
-     * 
-     * @returns {undefined}
      */
     const reset = () => {
         ships = _getShips()

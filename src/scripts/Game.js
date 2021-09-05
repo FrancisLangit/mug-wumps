@@ -18,31 +18,26 @@ const Game = (() => {
     let computer = Computer(playerGameboard);
 
     /**
-     * Resets the game.
+     * Stops the game.
      * 
      * @memberof module:Game
-     * 
-     * @returns {undefined} 
      */
-    const _reset = () => {
-        playerGameboard.reset();
-        computerGameboard.reset();
+     const _stop = () => {
         GameState.stop();
+        UserInterface.update();
     }
 
     /**
      * Checks if someone won the game and renders such effect accordingly.
      * 
      * @memberof module:Game
-     * 
-     * @returns {undefined}
      */
     const _checkWinner = () => {
         const isPlayerWon = computerGameboard.isShipsSunk();
         const isComputerWon = playerGameboard.isShipsSunk();
         if (isPlayerWon || isComputerWon) {
             UserInterface.displayWinner(isComputerWon);
-            _reset();
+            _stop();
         }
     }
 
@@ -58,9 +53,26 @@ const Game = (() => {
     const runTurn = (playerAttackX, playerAttackY) => {
         computerGameboard.receiveAttack(playerAttackX, playerAttackY);
         UserInterface.update(true);
-        computer.makeRandomAttack();
-        setTimeout(UserInterface.update, 500);
         _checkWinner();
+        if (GameState.isRunning()) {
+            computer.makeRandomAttack();
+            setTimeout(UserInterface.update, 500);
+            _checkWinner();
+        }
+    }
+
+    /**
+     * Stops the game and updates all objects to initial settings.
+     * 
+     * @memberof module:Game
+     */
+    const reset = () => {
+        GameState.stop();
+        playerGameboard.reset();
+        computerGameboard.reset();
+        UserInterface.startButton.show();
+        UserInterface.randomizeButton.show();
+        UserInterface.update();
     }
 
     return { 
@@ -70,6 +82,7 @@ const Game = (() => {
         computer,
 
         runTurn,
+        reset,
     }
 })();
 

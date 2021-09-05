@@ -1,0 +1,25 @@
+.button {
+    display: inline-block;
+
+    margin: 0 5px;
+    padding: 5px 10px;
+
+    border: 1px solid white;
+    border-radius: 5px;
+
+    color: white;
+    font-family: 'Open Sans Regular';
+    font-size: 12px;
+
+    cursor: pointer;
+    user-select: none;
+
+    transition: all 0.25s;
+
+    &:hover {
+        background: white;
+
+        color: black;
+
+    }
+}

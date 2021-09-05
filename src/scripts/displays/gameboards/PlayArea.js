@@ -1,15 +1,13 @@
-import { Game } from '../Game';
+import { Game } from '../../Game';
 import { GameboardDisplay } from './GameboardDisplay';
-import { GameState } from '../objects/GameState/GameState';
+import { GameState } from '../../objects/GameState/GameState';
 
 
 /**
  * Returns a `div` containing both of the game's Gameboard interfaces.
  * 
  * @namespace
- * 
  * @param {boolean} isComputerTurn `true` if current turn is computer's.
- * 
  * @returns {HTMLElement}
  */
 const PlayArea = (isComputerTurn) => {
@@ -20,7 +18,6 @@ const PlayArea = (isComputerTurn) => {
      * Returns `isInactive` argument to a `GameboardDisplay` call.
      * 
      * @param {*} isComputer `true` if state to be returned is computer's.
-     * 
      * @returns {boolean}
      */
     const _getIsInactive = (isComputer) => {
