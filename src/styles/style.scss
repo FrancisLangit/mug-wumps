@@ -6,7 +6,6 @@
 @import 'objects/button';
 @import 'objects/gameboardCell';
 @import 'objects/gameboard';
-@import 'objects/link';
 @import 'objects/modal';
 
 
@@ -27,5 +26,7 @@
 
 
 body {
+    background-color: black;
+
     text-align: center;
 }

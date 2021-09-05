@@ -64,7 +64,7 @@ const WinnerModal = () => {
      * @returns {HTMLElement}
      */
     const _getCloseButton = () => {
-        return Button('Close', hide, true).get();
+        return Button('Close', hide).get();
     }
 
     /**

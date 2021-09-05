@@ -7,7 +7,7 @@
     height: 100%;
     padding-top: 100px;
 
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.8);
 
     font-family: 'Open Sans Regular';
     font-size: 20px;
@@ -20,10 +20,11 @@
         margin: auto;
         padding: 20px;
 
-        background: white;
-        border: 1px solid #888;
+        background: black;
+        border: 1px solid white;
         border-radius: 12px;
 
+        color: white;
         text-align: center;
     }
 
@@ -32,7 +33,7 @@
     }
 
     &-subtext {
-        color: grey;
+        color: lightgrey;
         font-family: 'Open Sans Regular';
         font-size: 15px;
     }

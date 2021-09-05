@@ -10,12 +10,12 @@ import { ShowHideElement } from "../ShowHideElement";
  * @param {boolean} isLink `true` if button to be styled as link.
  * @returns {Object}
  */
-const Button = (text, callback, isLink) => {
+const Button = (text, callback) => {
     const { get, hide, show } = ShowHideElement();
     
     const button = get();
     button.textContent = text;
-    button.classList.add(isLink ? 'link' : 'button');
+    button.classList.add('button');
     button.addEventListener('click', callback);
 
     return {

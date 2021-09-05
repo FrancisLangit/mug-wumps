@@ -2,24 +2,24 @@
     width: 30px; 
     height: 30px;
 
-    border: 0.5px solid black;
+    border: 0.5px solid white;
 
     &-computer:hover {
-        background-color: rgb(225, 225, 225);
+        background-color: rgba(125, 125, 125, 0.5);
     
         cursor: pointer;
     }
     
     &-hit {
-        background-color: rgb(200, 105, 105);
+        background-color: red;
     }
     
     &-miss {
-        background-color: rgb(135, 165, 235);    
+        background-color: lime;    
     }
     
     &-ship {
-        background-color: rgb(205, 205, 205);
+        background-color: white;
     }
     
     &-hit, &-miss, &-player {
