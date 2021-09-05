@@ -11,7 +11,8 @@ const Header = () => {
      * @returns {HTMLElement}
      */
     const _getText = () => {
-        const headerText = document.createElement('div');
+        const headerText = document.createElement('a');
+        headerText.href = 'https://en.wikipedia.org/wiki/Mugwump_(video_game)';
         headerText.classList.add('header-text');
         headerText.textContent = 'mug.wumps';
         return headerText;

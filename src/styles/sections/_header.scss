@@ -1,9 +1,14 @@
 .header {
     margin-top: 50px;
-
+    
     &-text {
+        color: black;
         font-family: 'Open Sans Bold';
         font-size: 50px;
+
+        &:hover {
+            text-decoration: none;
+        }
     }
 
     &-subtext{
