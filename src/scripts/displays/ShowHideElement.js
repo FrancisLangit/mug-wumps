@@ -27,7 +27,7 @@ const ShowHideElement = () => {
      * Shows the object if it was hidden.
      */
     const show = () => {
-        showHideElement.style.display = 'initial';
+        showHideElement.style.display = 'inline-block';
     }
     
     return {
