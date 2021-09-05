@@ -1,0 +1,27 @@
+.footer {
+    display: inline-block;
+
+    margin-top: 60px;
+    padding: 10px;
+
+    border: 1px dotted grey;
+    border-radius: 10px;
+
+    &-text {
+        color: black;
+        font-size: 24px;
+        font-family: 'Open Sans Bold';
+    }
+
+    &-subtext {
+        color: darkgrey;
+        font-size: 15px;
+        font-family: 'Open Sans Regular';
+        text-decoration: underline;
+
+        &:hover {
+            color: grey;
+            text-decoration: none;
+        }
+    }
+}

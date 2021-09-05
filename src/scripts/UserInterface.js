@@ -9,6 +9,8 @@ import { PlayArea } from './displays/gameboards/PlayArea';
 import { RestartModal } from './displays/modals/RestartModal';
 import { WinnerModal } from './displays/modals/WinnerModal';
 
+import { Footer } from './displays/Footer';
+
 
 /**
  * Module holding methods that update the user interface.
@@ -78,6 +80,7 @@ const UserInterface = (() => {
             _getControls(), 
             restartModal.get(),
             winnerModal.get(),
+            Footer(),
         );
     }
 
