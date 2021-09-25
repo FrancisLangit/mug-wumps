@@ -12,7 +12,7 @@ A bastardized version of [battleship](https://en.wikipedia.org/wiki/Battleship_(
 
 ## How To Play
 
-To start the game, press the *Start* button. You'll then have a turn to make a find on a *wump*. If you find one, the square you clicked  on turns red. If otherwise, it turns green. The computer is then subsequently given the same opportunity.
+To start the game, press the *Start* button. You'll then have a turn to make a find on a *wump*. If you find one, the square you clicked  on turns **green**. If otherwise, it turns **grey**. The computer is then subsequently given the same opportunity.
 
 ![GIF showcasing randomize feature](./readme_assets/playing_game.gif)
 
