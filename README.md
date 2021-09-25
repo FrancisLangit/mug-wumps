@@ -10,7 +10,7 @@ A bastardized version of [battleship](https://en.wikipedia.org/wiki/Battleship_(
 3. Run `npm install` to install the application's dependencies.
 4. Open up `dist/index.html` on your web-browser of choice.
 
-## Usage
+## How To Play
 
 To start the game, press the *Start* button. You'll then have a turn to make a find on a *wump*. If you find one, the square you clicked  on turns red. If otherwise, it turns green. The computer is then subsequently given the same opportunity.
 

@@ -58,7 +58,7 @@ const Header = () => {
         const authorLink = _getLink(
             'http://github.com/FrancisLangit', 'Author');
         const headerLinks = document.createElement('div');
-        headerLinks.classList.add('header-links')
+        headerLinks.classList.add('header-links');
         headerLinks.append(aboutLink, ' • ', authorLink);
         return headerLinks;
     }
