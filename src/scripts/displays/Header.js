@@ -53,13 +53,17 @@ const Header = () => {
      * @returns {HTMLElement}
      */
     const _getLinksSection = () => {
-        const aboutLink = _getLink(
-            'http://github.com/FrancisLangit/mug-wumps', 'About');
-        const authorLink = _getLink(
-            'http://github.com/FrancisLangit', 'Author');
+        const authorUrl = 'http://github.com/FrancisLangit';
+
+        const aboutLink = _getLink(authorUrl + '/mug-wumps', 'About');
+        const authorLink = _getLink(authorUrl, 'Author');
+        const howtoLink = _getLink(
+            authorUrl + '/mug-wumps#how-to-play', 'How To Play?');
+
         const headerLinks = document.createElement('div');
         headerLinks.classList.add('header-links');
-        headerLinks.append(aboutLink, ' • ', authorLink);
+        headerLinks.append(aboutLink, ' • ', authorLink, ' • ', howtoLink);
+
         return headerLinks;
     }
 
